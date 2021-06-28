@@ -1,0 +1,29 @@
+
+.banner{
+    margin: 0;
+    min-height: 100vh;
+    background-image: url('http://imgfz.com/i/JE2VvDt.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  
+  }
+  
+  .banner:after {
+    content:"";
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top:0;
+    left:0;
+  
+    opacity:0.2;
+    z-index:-1;
+  }
+
+  #logo {
+    width: 450px;
+    margin-bottom: 20px;
+    border-color: orange;
+  }

@@ -1,0 +1,22 @@
+.back-admin{
+    margin: 0;
+    background-image: url('https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-black-textured-background-digital-headset-banner-poster-image_189314.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 40vh;
+  
+  }
+  
+  .back-admin:after {
+    content:"";
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top:0;
+    left:0;
+  
+    opacity:0.2;
+    z-index:-1;
+  }

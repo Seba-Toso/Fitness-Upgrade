@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Header...-->
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+
+  <!-- Css Styles -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+  <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+  <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+  <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="css/cookies.css" type="text/css">
+
+
+  <title>Fitness Upgrade</title>
+</head>
+<!-- End Header...-->
+
+
+<!-- Body...-->
+
+<body>
+
+  <div id="root"></div>
+
+  <!-- Page Preloder -->
+  <div id="preloder">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Js Plugins -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/masonry.pkgd.min.js"></script>
+  <script src="js/jquery.barfiller.js"></script>
+  <script src="js/jquery.slicknav.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/main.js"></script>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script>
+
+    $(document).ready(function () {
+      $(".dropdown-toggle").dropdown();
+    });
+
+  </script>
+
+  <!-- Cookies Cache Local Storage -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <div class="cookies-box float-right">
+    <div class="container-cookies">
+      <div class="parrafo text-center">
+        <p>Nuestro sitio web utiliza Cookies para brindar una mejor experiencia de Usuario
+          <a href="https://www.garrigues.com/es_ES/pagina/politica-cookies" target="_blank">Politica de Cookies.</a>
+        </p>
+      </div>
+      <div class="botones">
+        <button id="memo" class="myButton">Aceptar</button>
+        <button id="close" class="myButton">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const btn_close = document.querySelector('#close')
+    const btn_accept = document.querySelector('#memo')
+    const cont_cookies = document.querySelector('.cookies-box')
+    const containerCookies = document.querySelector('.container-cookies')
+
+
+    btn_close.addEventListener('click', () => {
+      cont_cookies.style.bottom = '-200px'
+    })
+
+    btn_accept.addEventListener('click', () => {
+      containerCookies.classList.remove('active')
+      localStorage.setItem('Nico training user', 'true')
+
+
+      cont_cookies.style.bottom = '-200px'
+    });
+
+    setTimeout(() => {
+      if (localStorage.getItem('Nico training user') == 'true') {
+        containerCookies.style.display = 'none';
+      }
+    }, 500)
+
+  </script>
+
+
+
+</body>
+<!-- End Body...-->
+
+</html>

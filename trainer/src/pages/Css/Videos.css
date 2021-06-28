@@ -1,0 +1,12 @@
+.videoList {
+    background-color: #222;
+}
+
+.videoItem {
+    background-color: #222;
+    color: #fafafa;
+    border-bottom: 1px solid #f36100;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+}

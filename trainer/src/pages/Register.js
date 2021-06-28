@@ -89,9 +89,7 @@ const Register = ({alert}) => {
     const handleUpdateSubmit = (event) => {
         event.preventDefault()
         const updatedUser = { ...userData, payment: true, cuponNumber}
-        //console.log(userData)
-        //console.log(updatedUser)
-        db.collection('Suscription').doc(userData.uid).set(updatedUser)
+        db.collection('Suscription').doc(userData.id).set(updatedUser)
         .then(() => {
             history.push('/video')
             alert.show('Tu cuenta fue activada', {type: 'success'})     

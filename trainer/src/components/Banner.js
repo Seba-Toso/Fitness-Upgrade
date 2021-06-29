@@ -11,7 +11,7 @@ const Banner = () => {
                     <div className="row">
                         <div className="col-lg-12 text-center">
                             <div className="bs-text">
-                                <h2>Entrenamiento Personalizado</h2>
+                                <h2 id="text">Entrenamiento Personalizado</h2>
                                 <div className="fa-logo">
                                     <img src={Logo}                                  
                                     alt="Logo"

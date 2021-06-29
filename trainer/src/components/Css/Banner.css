@@ -27,3 +27,19 @@
     margin-bottom: 20px;
     border-color: orange;
   }
+
+  @media (max-width: 360px) {
+    #text{ font-size: 45px; }
+ }
+ @media (max-width: 540px) {
+  #text{ 
+    font-size: 45px; 
+    margin-top: 40px;
+  }
+ }
+ @media (max-width: 280px) {
+    #text{ 
+      font-size: 35px; 
+      
+    }
+}

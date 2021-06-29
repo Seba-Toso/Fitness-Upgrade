@@ -12,7 +12,6 @@ import 'firebase/auth';
 import './Css/Header.css';
 
 const Header = ({alert}) => {
-   
     const firebase = useFirebaseApp();
     const history = useHistory();
     const { currentUser } = useContext(AuthContext);
@@ -27,7 +26,9 @@ const Header = ({alert}) => {
        
     }
 
- 
+   
+
+
 
     return (
         
@@ -81,20 +82,6 @@ const Header = ({alert}) => {
                             }
                             </div>
                         </li>
-                        {
-                            currentUser && currentUser.email === "admin@gmail.com" &&
-                            <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle active mt-2"  href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Admin
-                            </a>
-                            <div className="dropdown-menu subNavBar" aria-labelledby="navbarDropdownMenuLink">
-                            <a className="nav-link" href="#comments">Mensajes</a>
-                            <a className="nav-link" href="#registers">Registros</a>
-                            <a className="nav-link" href="#videos">Videos</a>
-    
-                            </div>
-                        </li>
-                        }
                         {
                             currentUser && currentUser.email === "admin@gmail.com" &&
                         <Link to="/admin">

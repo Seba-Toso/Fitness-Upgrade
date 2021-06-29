@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {useEffect, useContext,useState} from 'react';
+import React from 'react';
 import Prices from '../components/Prices';
 import Banner from '../components/Banner';
 import Cards from '../components/Cards';
@@ -12,10 +12,6 @@ import Intro from '../components/Intro';
 
 const Home = () => {
    
-   
-   
-    
-    
     return (
         <div>
             <Banner />

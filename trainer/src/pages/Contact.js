@@ -36,12 +36,13 @@ const Contact = ({alert}) => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="section-title">
-                                <h2>Contacto</h2>
+                                <h2 id='contactTitle'>Contacto</h2>
                                 <img 
                                     src={Iso} 
                                     alt="Iso" 
                                     width="100"
                                     className="mt-3"
+                                    id='contactLogo'
                                 />
                             </div>
                         </div>

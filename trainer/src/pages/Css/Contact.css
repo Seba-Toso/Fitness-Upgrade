@@ -8,7 +8,6 @@
     background-attachment: inherit;
     height: 40vh;
   }
-  
  
   input:focus, textarea:focus{
     border-color: rgba(82,168,236,.8);
@@ -32,5 +31,12 @@
 @media screen and (max-width: 375px){
   .back{
     background-size: 260%;
+  }
+  #contactLogo{
+    width: 27%;
+    margin-top: 5px !important;
+  }
+  #contactTitle{
+    margin-top: 0;
   }
 }

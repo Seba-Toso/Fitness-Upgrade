@@ -47,32 +47,32 @@ const ClientList = () => {
                         return (
                             <div className="table" key={doc.id} >
 
-                                <div class="modal fade bg-dark" 
+                                <div className="modal fade bg-dark" 
                                  id="exampleModal"
-                                 tabindex="-1" 
+                                 tabIndex="-1" 
                                  role="dialog" 
                                  aria-labelledby="exampleModalLabel" 
                                  aria-hidden="true"
 
                                  >
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content" style={{color:'white', background:'black'}}>
-                                    <div class="modal-header">
-                                        <h2 class="modal-title text-light" id="exampleModalLabel">Eliminar Cuenta de Cliente</h2>
+                                <div className="modal-dialog" role="document">
+                                    <div className="modal-content" style={{color:'white', background:'black'}}>
+                                    <div className="modal-header">
+                                        <h2 className="modal-title text-light" id="exampleModalLabel">Eliminar Cuenta de Cliente</h2>
                                         <button 
                                             type="button" 
-                                            class="close" 
+                                            className="close" 
                                             data-dismiss="modal" 
                                             aria-label="Close"
                                         >
                                         <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div className="modal-body">
                                        <h4 className="text-light text-center"> Esto elimanará la cuenta definitiva del Cliente. Deberá registrarse  
                                         para acceder a los videos.</h4>
                                     </div>
-                                    <div class="modal-footer">
+                                    <div className="modal-footer">
                                         <button 
                                             type="button" 
                                             className="myButton"
@@ -98,7 +98,7 @@ const ClientList = () => {
                                         fill="currentColor" 
                                         viewBox="0 0 16 16">
                                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                        <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                                         </svg>
                                     </div>
                                 </span>

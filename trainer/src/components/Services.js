@@ -24,8 +24,8 @@ const Services = () => {
                         <div className="col-lg-3 col-md-6">
                             <div className="class-item">
                             ​<picture>
-                            <source srcset={service2} type="image/svg+xml"/>
-                              <img src={service2} class="img-fluid" alt="services"/>
+                            <source srcSet={service2} type="image/svg+xml"/>
+                              <img src={service2} className="img-fluid" alt="services"/>
                             </picture>
                                 <div className="text-center ci-text">
                                     <span>Plan de entrenamiento personalizado</span>
@@ -39,8 +39,8 @@ const Services = () => {
                         <div className="col-lg-3 col-md-6">
                             <div className="class-item">
                             ​<picture>
-                            <source srcset={service1} type="image/svg+xml"/>
-                              <img src={service1} class="img-fluid" alt="services"/>
+                            <source srcSet={service1} type="image/svg+xml"/>
+                              <img src={service1} className="img-fluid" alt="services"/>
                             </picture>
                                 <div className="text-center ci-text">
                                     <span>Guía de entrenamiento</span>
@@ -54,8 +54,8 @@ const Services = () => {
                         <div className="col-lg-3 col-md-6">
                             <div className="class-item">
                             ​<picture>
-                            <source srcset={service3} type="image/svg+xml"/>
-                              <img src={service3} class="img-fluid" alt="services"/>
+                            <source srcSet={service3} type="image/svg+xml"/>
+                              <img src={service3} className="img-fluid" alt="services"/>
                             </picture>
                                 <div className="text-center ci-text">
                                     <span>Tips nutricionales</span>
@@ -71,8 +71,8 @@ const Services = () => {
                         <div className="col-lg-3 col-md-6">
                             <div className="class-item">
                             ​<picture>
-                            <source srcset={service4} type="image/svg+xml"/>
-                              <img src={service4} class="img-fluid" alt="services"/>
+                            <source srcSet={service4} type="image/svg+xml"/>
+                              <img src={service4} className="img-fluid" alt="services"/>
                             </picture>
                                 <div className="text-center ci-text">
                                     <span>Videos demostrativos</span>

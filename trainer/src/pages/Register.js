@@ -48,7 +48,7 @@ const Register = ({alert}) => {
             
         });
         return () => currentUserData()}
-    }, [currentUser]);
+    }, [currentUser, alert, firebase]);
 
     const handleSubmit = (event) => {
         event.preventDefault()

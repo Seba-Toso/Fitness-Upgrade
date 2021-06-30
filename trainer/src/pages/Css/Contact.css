@@ -1,9 +1,8 @@
 .back{
     margin: 0;
-    background-image: url(http://imgfz.com/i/CbPrdQR.jpeg);
+    background-image: url('../../assets/FotoContacLoginRegister.jpeg');
     background-repeat: no-repeat;
-    background-size: 110%;
-    background-position-y: 100%;
+    background-size: cover;
     background-position-x: center;
     background-attachment: inherit;
     height: 40vh;

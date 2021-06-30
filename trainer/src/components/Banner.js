@@ -6,7 +6,7 @@ import Logo from '../assets/Logo.png';
 const Banner = () => {
     return (
         <div className="banner">
-           <section className="banner-section sectionContainer" >
+           <section className="banner-section sectionContainer">
                 <div className="container" style={{height: '75%'}}>
                     <div className="row" style={{height: '100%'}}>
                         <div className="col-lg-12 text-center" >

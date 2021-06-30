@@ -72,6 +72,7 @@ const Login = ({alert}) => {
                                             placeholder="Email" 
                                             className="mt-2" 
                                             required
+                                            autoComplete='true'
                                             pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$"
                                             onChange={(e) => setEmail(e.target.value)}
                                         />
@@ -80,6 +81,7 @@ const Login = ({alert}) => {
                                             placeholder="Password" 
                                             className="mt-2" 
                                             required
+                                            autoComplete='true'
                                             onChange={(e) => setPassword(e.target.value)}
                                         />                                      
                                         <button className="mt-5 " type="submit">Enviar</button>

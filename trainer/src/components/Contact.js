@@ -19,8 +19,15 @@ const Contact = () => {
                         <div className="col-md-4">
                             <div className="gt-text">
                                 <i className="fa fa-instagram"></i>
-                                <p className="mt-2"><a href='https://www.instagram.com/nicocandiotifit/?hl=es-la' 
-                                      style={{color: '#fafafa'}}>@nicocandiotifit</a></p>
+                                <p className="mt-2">
+                                    <a 
+                                        href='https://www.instagram.com/nicocandiotifit/?hl=es-la' 
+                                        style={{color: '#fafafa'}}
+                                        target='blank'
+                                    >
+                                        @nicocandiotifit
+                                    </a>
+                                </p>
                             </div>
                         </div>
                         <div className="col-md-4">

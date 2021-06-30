@@ -6,11 +6,11 @@ import Logo from '../assets/Logo.png';
 const Banner = () => {
     return (
         <div className="banner">
-           <section className="banner-section">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12 text-center">
-                            <div className="bs-text">
+           <section className="banner-section sectionContainer" >
+                <div className="container" style={{height: '75%'}}>
+                    <div className="row" style={{height: '100%'}}>
+                        <div className="col-lg-12 text-center" >
+                            <div className="bs-text" style={{height: '100%'}}>
                                 <h2 id="text">Entrenamiento Personalizado</h2>
                                 <div className="fa-logo">
                                     <img src={Logo}                                  
@@ -19,7 +19,7 @@ const Banner = () => {
                                     />
                                 </div>
                                 <a href="#prices" 
-                                   className="primary-btn btn-normal mb-5"
+                                   className="primary-btn btn-normal homeButton"
                                    >Elegí tu Plan</a>
                             </div>
                         </div>

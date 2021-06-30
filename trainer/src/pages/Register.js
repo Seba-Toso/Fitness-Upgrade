@@ -154,7 +154,8 @@ const Register = ({alert}) => {
                                 currentUser && currentUser.email !== 'admin@gmail.com' &&
                                 <div className="custom-control custom-switch">
                                     <input type="checkbox" className="custom-control-input" id="customSwitch1" onClick={() => setIsForUpdate(!isForUpdate)} />
-                                    <label className="custom-control-label text-light" for="customSwitch1">Update</label>
+                                    <label className="custom-control-label text-light mr-1" for="customSwitch1">Update</label>
+                                    <small style={{color:"#444"}}> - Si tenes que actualizar el número de cupón de pago, hacé click en update</small>
                                 </div>
                                 }
                                 <br/>

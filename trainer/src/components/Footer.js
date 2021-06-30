@@ -19,15 +19,22 @@ const Footer = () => {
                         <div className="col-lg-4">
                             <div className="fs-about">
                                 <div className="fa-logo text-center">
-                                    <a  href="/"><img src={Logo}
-                                        width="250px" 
-                                        alt="Logo" 
-                                        id="logo"
-                                    /></a>
-                                     <a href='https://it-devs.ga/' target='blank' 
-                                        className="badge p-2 Brand">IT-Devs - Design & Development
-                                        </a>
-                                    <p>©Todos los derechos reservados 2021</p>
+                                    <a  href="/">
+                                        <img 
+                                            src={Logo}
+                                            width="250px" 
+                                            alt="Logo" 
+                                            id="logo"
+                                        />
+                                    </a>
+                                    <a 
+                                        href='https://it-devs.ga/' 
+                                        target='blank' 
+                                        className="badge p-2 Brand"
+                                    >
+                                        IT-Devs - Design & Development
+                                    </a>
+                                    <p className='mt-2'>©Todos los derechos reservados 2021</p>
                                 </div>
                         </div>
                         </div>

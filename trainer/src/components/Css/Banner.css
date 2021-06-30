@@ -2,12 +2,12 @@
 .banner{
     margin: 0;
     min-height: 100vh;
-    background-image: url('http://imgfz.com/i/JE2VvDt.jpeg');
+    background-image: url('../../assets//HomeBanner.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position-x: center;
+    background-position-y: -35%;
     background-attachment: fixed;
-  
   }
   
   .banner:after {
@@ -22,6 +22,18 @@
     z-index:-1;
   }
 
+  .sectionContainer {
+    height: 100vh;
+  }
+  .homeButton {
+    color: #222 !important;
+    font-weight: bolder !important;
+  }
+  .homeButton:hover {
+    color: white !important;
+  }
+
+
   #logo {
     width: 450px;
     margin-bottom: 20px;
@@ -35,6 +47,12 @@
   #text{ 
     font-size: 45px; 
     margin-top: 40px;
+  }
+  .banner{
+    background-position-x: center;
+  }
+  .homeButton {
+    margin-top: 45%;
   }
  }
  @media (max-width: 280px) {

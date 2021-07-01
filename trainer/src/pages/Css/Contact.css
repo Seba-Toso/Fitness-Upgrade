@@ -30,6 +30,14 @@
   }
 }
 
+@media screen and (max-width: 425px){
+  .back{
+    background-size: 325%;
+    background-position-x: 25%;
+  }
+}
+
+
 @media screen and (max-width: 375px){
   .back{
     background-size: 260%;

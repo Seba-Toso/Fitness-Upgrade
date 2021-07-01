@@ -3,7 +3,7 @@ import React from 'react';
 import service1 from '../assets/Fullbody.png';
 import service2 from '../assets/Hit.png';
 import service3 from '../assets/TipsNutricionales.png';
-import service4 from '../assets/EntrenaDesdeCasa.png';
+import service4 from '../assets/Bíceps.jpg';
 
 
 const Services = () => {
@@ -25,7 +25,7 @@ const Services = () => {
                             <div className="class-item">
                             ​<picture>
                             <source srcSet={service2} type="image/svg+xml"/>
-                              <img src={service2} className="img-fluid" alt="services"/>
+                              <img src={service2} className="img-fluid" alt="services" loading='lazy' />
                             </picture>
                                 <div className="text-center ci-text">
                                     <span>Plan de entrenamiento personalizado</span>
@@ -40,7 +40,7 @@ const Services = () => {
                             <div className="class-item">
                             ​<picture>
                             <source srcSet={service1} type="image/svg+xml"/>
-                              <img src={service1} className="img-fluid" alt="services"/>
+                              <img src={service1} className="img-fluid" alt="services" loading='lazy'/>
                             </picture>
                                 <div className="text-center ci-text">
                                     <span>Guía de entrenamiento</span>
@@ -55,7 +55,7 @@ const Services = () => {
                             <div className="class-item">
                             ​<picture>
                             <source srcSet={service3} type="image/svg+xml"/>
-                              <img src={service3} className="img-fluid" alt="services"/>
+                              <img src={service3} className="img-fluid" alt="services" loading='lazy'/>
                             </picture>
                                 <div className="text-center ci-text">
                                     <span>Tips nutricionales</span>
@@ -72,7 +72,7 @@ const Services = () => {
                             <div className="class-item">
                             ​<picture>
                             <source srcSet={service4} type="image/svg+xml"/>
-                              <img src={service4} className="img-fluid" alt="services"/>
+                              <img src={service4} className="img-fluid" alt="services" loading='lazy'/>
                             </picture>
                                 <div className="text-center ci-text">
                                     <span>Videos demostrativos</span>

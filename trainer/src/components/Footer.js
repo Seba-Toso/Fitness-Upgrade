@@ -78,6 +78,7 @@ const Footer = () => {
                                     <img src="https://audiovision.com.pe/wp-content/uploads/2021/03/iconostarjeta.png"
                                      alt="pagos" 
                                      className="mt-2"
+                                     loading='lazy'
                                      />
                                 </div>
                             </div>

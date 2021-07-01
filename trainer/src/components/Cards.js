@@ -34,6 +34,7 @@ const Cards = () => {
                             className="imgChanges"
                             src={Card1} 
                             alt="after" 
+                            loading='lazy'
                             />                            
                     </div>
                     <div className="col-sm">
@@ -41,6 +42,7 @@ const Cards = () => {
                             className="imgChanges"
                             src={Card2} 
                             alt="after" 
+                            loading='lazy'
                             />                     
                     </div>
                     <div className="col-sm">
@@ -48,6 +50,7 @@ const Cards = () => {
                             className="imgChanges" 
                             src={Card3} 
                             alt="after" 
+                            loading='lazy'
                             />
                     </div>
                     <div className="col-sm">
@@ -55,6 +58,7 @@ const Cards = () => {
                             className="imgChanges" 
                             src={Card4} 
                             alt="after" 
+                            loading='lazy'
                             />
                     </div>
                 </div>
@@ -64,6 +68,7 @@ const Cards = () => {
                             className="imgChanges" 
                             src={Card5} 
                             alt="after" 
+                            loading='lazy'
                             />
                     </div>
                     <div className="col-sm">
@@ -71,6 +76,7 @@ const Cards = () => {
                             className="imgChanges" 
                             src={Card6} 
                             alt="after" 
+                            loading='lazy'
                             />
                     </div>
                     <div className="col-sm">
@@ -78,13 +84,16 @@ const Cards = () => {
                             className="imgChanges" 
                             src={Card7} 
                             alt="after" 
+                            loading='lazy'
                         />
                     </div>
                     <div className="col-sm">
                         <img
                             className="imgChanges" 
                             src={Card8} 
-                            alt="after" />
+                            alt="after" 
+                            loading='lazy'
+                        />
                     </div>
                 </div>
             </div>

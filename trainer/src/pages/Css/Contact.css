@@ -3,9 +3,12 @@
     background-image: url('../../assets/FotoContacLoginRegister.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
     background-position-x: center;
     background-attachment: inherit;
-    height: 40vh;
+    min-height: 50vh;
   }
  
   input:focus, textarea:focus{
@@ -30,6 +33,7 @@
 @media screen and (max-width: 375px){
   .back{
     background-size: 260%;
+    background-position-x: 25%;
   }
   #contactLogo{
     width: 27%;

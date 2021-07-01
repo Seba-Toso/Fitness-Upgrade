@@ -21,12 +21,10 @@
 
 @media screen and (max-width: 768px){
   .back{
-    background-repeat: no-repeat;
-    background-size: 228%;
-    background-position-y: 100%;
-    background-position-x: center;
-    background-attachment: inherit;
-    height: 40vh;
+    background-size: 200%;
+    background-position-y: 50%;
+    background-position-x: 25%;
+    height: 55vh;
   }
 }
 
@@ -34,14 +32,16 @@
   .back{
     background-size: 325%;
     background-position-x: 25%;
+    background-position-y: 120%;
   }
 }
 
 
 @media screen and (max-width: 375px){
   .back{
-    background-size: 260%;
+    background-size: 290%;
     background-position-x: 25%;
+    background-position-y: 120%;
   }
   #contactLogo{
     width: 27%;
@@ -51,3 +51,4 @@
     margin-top: 0;
   }
 }
+

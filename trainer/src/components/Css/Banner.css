@@ -27,11 +27,11 @@
     margin-top: 20px;
   }
   .homeButton {
-    color: #222 !important;
+    color: #fff !important;
     font-size: 13px;
     font-weight: bolder !important;
     width: 180px;
-    margin-top: -0.5rem;
+    margin-top: -0.9rem;
   }
   .homeButton:hover {
     color: white !important;
@@ -39,7 +39,7 @@
 
   #logo {
     width: 400px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     border-color: orange;
   }
 

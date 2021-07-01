@@ -41,6 +41,7 @@ const Header = ({alert}) => {
                     height="50" 
                     className="d-inline-block align-top rounded mr-2" 
                     alt="Logo" 
+                    data-toggle="collapse" data-target=".navbar-collapse"
                     />
             </a>Fitness Upgrade
                 <button className="navbar-toggler" 
@@ -56,29 +57,29 @@ const Header = ({alert}) => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item active mt-2">
-                            <Link to="/" className="nav-link">Home</Link>
+                            <Link to="/" className="nav-link" data-toggle="collapse" data-target=".navbar-collapse">Home</Link>
                         </li>
                         <li className="nav-item active mt-2">
-                            <Link to="/us" className="nav-link">Conoceme</Link>
+                            <Link to="/us" className="nav-link" data-toggle="collapse" data-target=".navbar-collapse">Conoceme</Link>
                         </li>
                         {
                             currentUser &&
                             <li className="nav-item active mt-2">
-                                <Link to="/video" className="nav-link">Videos</Link>
+                                <Link to="/video" className="nav-link" data-toggle="collapse" data-target=".navbar-collapse">Videos</Link>
                             </li> 
                         }
                         <li className="nav-item active mt-2">
-                            <Link to="/contact" className="nav-link">Contacto</Link>
+                            <Link to="/contact" className="nav-link" data-toggle="collapse" data-target=".navbar-collapse">Contacto</Link>
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle active mt-2"  href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Usuarios
                             </a>
                             <div className="dropdown-menu subNavBar" aria-labelledby="navbarDropdownMenuLink">
-                            <Link className="nav-link" to="/register">Registro</Link>
+                            <Link className="nav-link" to="/register" data-toggle="collapse" data-target=".navbar-collapse">Registro</Link>
                             {
                             !currentUser &&
-                            <Link className="nav-link" to="/login">Login</Link>
+                            <Link className="nav-link" to="/login" data-toggle="collapse" data-target=".navbar-collapse">Login</Link>
                             }
                             </div>
                         </li>
@@ -91,6 +92,7 @@ const Header = ({alert}) => {
                             height="60" 
                             className="d-inline-block align-top rounded-circle p-1" 
                             alt="Logo" 
+                            data-toggle="collapse" data-target=".navbar-collapse"
                             />
                         </Link>
                         }

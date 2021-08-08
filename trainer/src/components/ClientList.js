@@ -21,15 +21,16 @@ const ClientList = () => {
     
     }, []);
 
-    const handleDelete = ( id) => {
+    const handleDelete = (id) => {
+        console.log(id)
         db.collection('Suscription').doc(id).delete()
         .then(() => window.location.reload())
     }
 
     const handleCancelSubscription = useCallback((userIndex, userId) => {
         const user = data[userIndex]
-        const updatedUser = {...user, payment: false}
-
+        const updatedUser = {...user, payment: !user.payment}
+        console.log(userId)
         db.collection('Suscription').doc(userId).set(updatedUser)
     },[data])
 
@@ -48,13 +49,13 @@ const ClientList = () => {
                             <div className="table" key={doc.id} >
 
                                 <div className="modal fade bg-dark" 
-                                 id="exampleModal"
-                                 tabIndex="-1" 
-                                 role="dialog" 
-                                 aria-labelledby="exampleModalLabel" 
-                                 aria-hidden="true"
+                                    id="exampleModal"
+                                    tabIndex="-1" 
+                                    role="dialog" 
+                                    aria-labelledby="exampleModalLabel" 
+                                    aria-hidden="true"
 
-                                 >
+                                >
                                 <div className="modal-dialog" role="document">
                                     <div className="modal-content" style={{color:'white', background:'black'}}>
                                     <div className="modal-header">
@@ -69,8 +70,9 @@ const ClientList = () => {
                                         </button>
                                     </div>
                                     <div className="modal-body">
-                                       <h4 className="text-light text-center"> Esto elimanará la cuenta definitiva del Cliente. Deberá registrarse  
-                                        para acceder a los videos.</h4>
+                                        <h4 className="text-light text-center"> 
+                                            Esto elimanará la cuenta definitiva del Cliente. Deberá registrarse para acceder a los videos.
+                                        </h4>
                                     </div>
                                     <div className="modal-footer">
                                         <button 
@@ -164,7 +166,7 @@ const ClientList = () => {
                                     <div className='tableDescription'>
                                         <img 
                                         src={doc.imageFront} 
-                                        alt="front"
+                                        alt="Frente"
                                         width="100px"
                                         />
                                     </div>
@@ -174,7 +176,7 @@ const ClientList = () => {
                                     <div className='tableDescription'>
                                         <img 
                                         src={doc.imageBack} 
-                                        alt="front"
+                                        alt="Espalda"
                                         width="100px"
                                         />
                                     </div>

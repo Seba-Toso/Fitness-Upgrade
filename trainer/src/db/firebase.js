@@ -6,7 +6,6 @@ import 'firebase/auth';
 
 
 const firebaseApp = firebase.initializeApp ({
-    //firebase api keys
   });
 
   
@@ -16,5 +15,4 @@ const db = firebase.firestore();
 export {
   db,
   firebaseApp,
- 
 }

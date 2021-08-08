@@ -53,7 +53,7 @@ const Register = ({alert}) => {
     const handleSubmit = (event) => {
         event.preventDefault()
     
-        //        db.collection('Suscription').doc(userId).set(updatedUser)
+        //db.collection('Suscription').doc(userId).set(updatedUser)
 
         firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((credential) => {
@@ -83,6 +83,7 @@ const Register = ({alert}) => {
             alert.show(`Exitos ${firstName}! `, {type: 'success'})  
             history.push('/')
         }).catch( err => {
+            console.log(err)
             alert.show('Error en datos ingresados', {type: 'error'})     
         })   
     }
@@ -97,6 +98,9 @@ const Register = ({alert}) => {
     }
 
     const onFileChangeFront = async (e) => {
+        if(!e.target.files[0]){
+            return
+        }
         const file = e.target.files[0]
         const storageRef =  firebaseApp.storage().ref()
         const fileRef = storageRef.child(file.name)
@@ -105,21 +109,24 @@ const Register = ({alert}) => {
                 fileRef.getDownloadURL().then(function(url) 
                 {
                     setImageFront(url)
-                    
+                    //console.log(url)
                 })
         })
 
     }
     const onFileChangeBack = async (e) => {
-    const file = e.target.files[0]
-    const storageRef =  firebaseApp.storage().ref()
-    const fileRef = storageRef.child(file.name)
-    await fileRef.put(file)
+        if(!e.target.files[0]){
+            return
+        }
+        const file = e.target.files[0]
+        const storageRef =  firebaseApp.storage().ref()
+        const fileRef = storageRef.child(file.name)
+        await fileRef.put(file)
         .then(() => {
             fileRef.getDownloadURL().then(function(url) 
             {
                 setImageBack(url)
-                
+                //console.log(url)
             })
     })
 
@@ -165,8 +172,7 @@ const Register = ({alert}) => {
                                     <div className="form-row">
                                     <div className="form-group col-md-6">
                                     <input type="text" className="form-control"  
-                                        placeholder="Ingrese N~ Cupón de Operación" 
-                                        required
+                                        placeholder="Ingrese N~ Cupón de Operación"
                                         pattern="^[\s\S]{10,11}$"
                                         title="Número de Operación invalido."
                                         value={cuponNumber}
@@ -183,7 +189,6 @@ const Register = ({alert}) => {
                                         <div className="form-group col-md-6">
                                         <input type="text" className="form-control"  
                                             placeholder="Nombre" 
-                                            required
                                             value={firstName}
                                             onChange={(e) => setFirsName(e.target.value)}
                                             />
@@ -191,7 +196,6 @@ const Register = ({alert}) => {
                                         <div className="form-group col-md-6">                            
                                         <input type="text" className="form-control"  
                                             placeholder="Apellido" 
-                                            required
                                             value={lastName}
                                             onChange={(e) => setLastName(e.target.value)}
                                             />
@@ -201,7 +205,6 @@ const Register = ({alert}) => {
                                         <div className="form-group col-md-6">
                                         <input type="email" className="form-control"  
                                             placeholder="Email" 
-                                            required
                                             pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
@@ -210,7 +213,6 @@ const Register = ({alert}) => {
                                         <div className="form-group col-md-6">   
                                         <input type="text" className="form-control"  
                                             placeholder="Antecedentes médicos" 
-                                            required
                                             value={medicalHistory}
                                             onChange={(e) => setMedicalHistory(e.target.value)}
                                             />                         
@@ -220,23 +222,20 @@ const Register = ({alert}) => {
                                         <div className="form-group col-md-4">
                                         <input type="text" className="form-control"  
                                             placeholder="Peso" 
-                                            required
                                             value={weight}
                                             onChange={(e) => setWeight(e.target.value)}
                                             />
                                         </div>
                                         <div className="form-group col-md-4">
                                         <input type="text" className="form-control"  
-                                            placeholder="Altura" 
-                                            required
+                                            placeholder="Altura"
                                             value={height}
                                             onChange={(e) => setHeight(e.target.value)}
                                             />
                                         </div>
                                         <div className="form-group col-md-4">                            
                                         <input type="text" className="form-control"  
-                                            placeholder="Edad" 
-                                            required
+                                            placeholder="Edad"
                                             value={age}
                                             onChange={(e) => setAge(e.target.value)}
                                             />
@@ -245,16 +244,14 @@ const Register = ({alert}) => {
                                     <div className="form-row">
                                         <div className="form-group col-md-6">
                                         <input type="text" className="form-control"  
-                                            placeholder="Cantidad de días para entrenar" 
-                                            required
+                                            placeholder="Cantidad de días para entrenar"
                                             value={availableDays}
                                             onChange={(e) => setAvailableDays(e.target.value)}
                                             />
                                         </div>
                                         <div className="form-group col-md-6">                            
                                         <input type="text" className="form-control"  
-                                            placeholder="Lugar de entrenamiento" 
-                                            required
+                                            placeholder="Lugar de entrenamiento"
                                             value={trainingPlace}
                                             onChange={(e) => setTrainingPlace(e.target.value)}
                                             />
@@ -263,16 +260,14 @@ const Register = ({alert}) => {
                                     <div className="form-row">
                                         <div className="form-group col-md-6">                            
                                         <textarea type="text" className="form-control"  
-                                            placeholder="Si es en casa, disponés de elementos? Detallarlos:" 
-                                            required
+                                            placeholder="Si es en casa, disponés de elementos? Detallarlos:"
                                             value={tools}
                                             onChange={(e) => setTools(e.target.value)}
                                             />
                                         </div>
                                         <div className="form-group col-md-6">
                                         <textarea type="text" className="form-control"  
-                                            placeholder="Objetivo" 
-                                            required
+                                            placeholder="Objetivo"
                                             value={target}
                                             onChange={(e) => setTarget(e.target.value)}
                                             /> 
@@ -280,48 +275,56 @@ const Register = ({alert}) => {
                                     </div>
                                     <div className="form-row">
                                         <div className="form-group col-md-6">
-                                        <p>Foto de Frente</p>                              
+                                        <p>Foto de Frente</p>    
+                                        <small className="form-group col-md-6" style={{color:"#444"}}>*Es recomendable la foto no pese más de 1MB</small>                          
                                         <input 
-                                        type="file"
-                                        className="p-2" 
-                                        required  
-                                        accept="image/*"
-                                        onChange={onFileChangeFront}
+                                            type="file"
+                                            className="p-2"  
+                                            accept="image/*"
+                                            onChange={onFileChangeFront}
                                         />
+                                        
                                         </div>
                                         <div className="form-group col-md-6">                            
-                                        <p>Foto de Espalda</p>                                
+                                        <p>Foto de Espalda</p>           
+                                        <small className="form-group col-md-6" style={{color:"#444"}}>*Es recomendable la foto no pese más de 1MB</small>                     
                                         <input 
-                                        type="file"
-                                        className="p-2" 
-                                        required       
-                                        accept="image/*"                    
-                                        onChange={onFileChangeBack}
+                                            type="file"
+                                            className="p-2"       
+                                            accept="image/*"                    
+                                            onChange={onFileChangeBack}
+                                            disabled={imageFront? false : true}
                                         />
                                         </div>
                                     </div>
                                     <div className="form-row">
                                         <div className="form-group col-md-6">
-                                        <input type="text" className="form-control"  
-                                            placeholder="Ingrese N~ Cupón de Operación" 
-                                            required
-                                            pattern="^[\s\S]{10,11}$"
-                                            title="Número de Operación invalido."
-                                            value={cuponNumber}
-                                            onChange={(e) => setCuponNumber(e.target.value)}
+                                            <small className="form-group col-md-6" style={{color:"#444"}}>El cupón debe tener 10 u 11 caracteres</small>   
+                                            <input type="text" className="form-control"  
+                                                placeholder="Ingrese N~ Cupón de Operación" 
+                                                pattern="^[\s\S]{10,11}$"
+                                                title="Número de Operación invalido."
+                                                value={cuponNumber}
+                                                onChange={(e) => setCuponNumber(e.target.value)}
                                             />
                                         </div>
                                         <div className="form-group col-md-6">
-                                        <input type="password" className="form-control"  
-                                            placeholder="Elija su Contraseña" 
-                                            required
-                                            value={password}
-                                            onChange={(e) => setPassword(e.target.value)}
+                                            <small className="form-group col-md-6" style={{color:"#444"}}>La contraseña debe tener mínimo 6 caracteres</small>   
+                                            <input type="password" className="form-control"  
+                                                placeholder="Elija su Contraseña" 
+                                                value={password}
+                                                onChange={(e) => setPassword(e.target.value)}
                                             />
                                         </div>
                                     </div>
 
-                                    <button className="mt-5" type="submit">Crear cuenta</button>
+                                    <button 
+                                        className="mt-5 createAccount" 
+                                        type="submit"
+                                        disabled={imageFront && imageBack && email && password ? false : true}
+                                    >
+                                        Crear cuenta
+                                    </button>
                                     <p className="mt-2">Ud. ya tenés cuenta? <Link to="/login">Login</Link></p>    
                                 </form> 
                                 }

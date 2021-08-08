@@ -18,6 +18,11 @@
     -moz-box-shadow: 0 0 8px rgba(82,168,236,.6);
     box-shadow: 0 0 8px rgba(82,168,236,.6) !important;
 }
+.createAccount:disabled{
+  cursor: not-allowed;
+  background-color: rgb(148, 109, 12);
+  color: darkgrey;
+}
 
 @media screen and (max-width: 768px){
   .back{

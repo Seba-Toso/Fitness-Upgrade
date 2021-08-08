@@ -32,7 +32,8 @@ const Register = ({alert}) => {
     const payment = cuponNumber.length > 1 ? true : false
     const firebase = useFirebaseApp();
     const history = useHistory();
-
+    const [messageFront, setMessageFront] = useState('*Es recomendable la foto no pese más de 1MB')
+    const [messageBack, setMessageBack] = useState('*Es recomendable la foto no pese más de 1MB')
 
     useEffect(() => { 
         if(currentUser){
@@ -101,6 +102,7 @@ const Register = ({alert}) => {
         if(!e.target.files[0]){
             return
         }
+        setMessageFront('Cargando imagen, espere...')
         const file = e.target.files[0]
         const storageRef =  firebaseApp.storage().ref()
         const fileRef = storageRef.child(file.name)
@@ -110,14 +112,15 @@ const Register = ({alert}) => {
                 {
                     setImageFront(url)
                     //console.log(url)
+                    setMessageFront('*Es recomendable la foto no pese más de 1MB')
                 })
         })
-
     }
     const onFileChangeBack = async (e) => {
         if(!e.target.files[0]){
             return
         }
+        setMessageBack('Cargando imagen, espere...')
         const file = e.target.files[0]
         const storageRef =  firebaseApp.storage().ref()
         const fileRef = storageRef.child(file.name)
@@ -127,6 +130,7 @@ const Register = ({alert}) => {
             {
                 setImageBack(url)
                 //console.log(url)
+                setMessageBack('*Es recomendable la foto no pese más de 1MB')
             })
     })
 
@@ -276,7 +280,7 @@ const Register = ({alert}) => {
                                     <div className="form-row">
                                         <div className="form-group col-md-6">
                                         <p>Foto de Frente</p>    
-                                        <small className="form-group col-md-6" style={{color:"#444"}}>*Es recomendable la foto no pese más de 1MB</small>                          
+                                        <small className="form-group col-md-6" style={{color:"#444"}}>{messageFront}</small>                          
                                         <input 
                                             type="file"
                                             className="p-2"  
@@ -287,7 +291,7 @@ const Register = ({alert}) => {
                                         </div>
                                         <div className="form-group col-md-6">                            
                                         <p>Foto de Espalda</p>           
-                                        <small className="form-group col-md-6" style={{color:"#444"}}>*Es recomendable la foto no pese más de 1MB</small>                     
+                                        <small className="form-group col-md-6" style={{color:"#444"}}>{messageBack}</small>                     
                                         <input 
                                             type="file"
                                             className="p-2"       

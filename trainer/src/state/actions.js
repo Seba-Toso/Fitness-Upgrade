@@ -81,17 +81,17 @@ export const updateExercises = (image, category, name, link) => (dispatch, getSt
                 return excercise
             }
             const updatedExercise = excercise.exercises.concat({link: link, name: name})
+
             return {...excercise, exercises: updatedExercise}
         })
-
     }
-     
+    
     db.collection('Videos').doc('PersonlTraining').set({
         videos: updatedExcercises
     })
         .then(
         response => {
-            console.log(response)
+            //console.log(response)
             return (
                 dispatch({
                 type: UPDATE_EXERCISES_SUCCESS,
@@ -133,7 +133,7 @@ export const deleteExercise = (category, name) => (dispatch, getState) => {
     })
         .then(
         response => {
-            console.log(response)
+            //console.log(response)
             return (
                 dispatch({
                 type: DELETE_EXERCISE_SUCCESS,
@@ -176,15 +176,13 @@ export const deleteCategory = (category) => (dispatch, getState) => {
     })
         .then(
         response => {
-            console.log(response)
+            //console.log(response)
             return (
                 dispatch({
                 type: DELETE_CATEGORY_SUCCESS,
                 payload: updatedExcercises
                 })
             )
-
-
         })
         .catch(
             error => {

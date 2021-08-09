@@ -15,7 +15,15 @@ const CollapsableItem = ({video, index, deleteExercise, deleteCategory}) => {
     const handleVideos = () => {
         if(exercises.length > 0){
             return (
-                exercises.map( (excersise,index) => 
+                exercises.sort( (a, b) => {
+                    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                        return 1;
+                    }
+                    if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                        return -1;
+                    }
+                    return 0;
+                }).map( (excersise,index) => 
                     <li key={index} className="list-group-item videoItem" style={{fontSize: isAdmin? '12px' : '14px'}} >
                         {
                             isAdmin && 

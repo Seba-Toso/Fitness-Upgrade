@@ -99,13 +99,22 @@ const Video = ({videos, fetching}) => {
 
 const mapStateToProps = (state) => {
     const {excercises, isFetching} = state.trainerState
+    //console.log(excercises)
     return {
         isFetching,
-        videos: excercises
+        videos: excercises.sort( (a, b) => {
+			if (a.category < b.category) {
+				return -1;
+			}
+			if (a.category > b.category) {
+				return 1;
+			}
+			return 0;
+		})
     }
 }
 
- export default connect(mapStateToProps)(Video)
+export default connect(mapStateToProps)(Video)
 
 
 

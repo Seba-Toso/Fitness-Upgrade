@@ -76,6 +76,13 @@ const Register = ({alert}) => {
                 imageFront,
                 imageBack,
                 payment
+            }).then((algo) => {
+                console.log('registrado con add');
+                console.log(algo);
+            })
+            .catch((err) => {
+                console.log('salió mal el registro en add');
+                console.log(err);
             })
 
             const form = document.querySelector('#form');
@@ -88,6 +95,7 @@ const Register = ({alert}) => {
             alert.show('Error en datos ingresados', {type: 'error'})     
         })   
     }
+    
     const handleUpdateSubmit = (event) => {
         event.preventDefault()
         const updatedUser = { ...userData, payment: true, cuponNumber}

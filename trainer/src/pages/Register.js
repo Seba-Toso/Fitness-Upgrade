@@ -305,7 +305,7 @@ const Register = ({alert}) => {
                                         <input type="text" className="form-control"  
                                             placeholder="Ingrese N~ Cupón de Operación" 
                                             required
-                                            pattern="^[\s\S]{10,11}$"
+                                            pattern="^[\s\S]{10,12}$"
                                             title="Número de Operación invalido."
                                             value={cuponNumber}
                                             onChange={(e) => setCuponNumber(e.target.value)}

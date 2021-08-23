@@ -20,7 +20,7 @@ export const DELETE_CATEGORY_ERROR = 'DELETE_CATEGORY_ERROR'
 const fetchDataFromDB = async () => {
     try {
         const dbReference = db.collection('Videos').doc('PersonlTraining')
-        const dbData = await dbReference.get('videos').then(res => {
+        const dbData = await dbReference.get().then(res => {
             return res.data()
         })
         return dbData

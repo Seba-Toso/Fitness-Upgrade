@@ -15,7 +15,7 @@ import Admin from './pages/Admin';
 
 
 const options = {
-  timeout: 3000,
+  timeout: 2000,
 };
 
 const PrivateRoute = ({isAdmin}) => {

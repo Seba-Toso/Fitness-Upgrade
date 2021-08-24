@@ -14,12 +14,26 @@ const Video = ({videos, fetching}) => {
     const  {currentUser} = useContext(AuthContext)
 
     useEffect(() => { 
+        //console.log(currentUser.uid);
         const currentUserData = db.collection("Suscription").where("uid", "==", currentUser.uid).onSnapshot(snap => {
-            const userData = snap.docs.map(doc => ({...doc.data(), 'id': doc.id}))
-            setuserData(userData)
+            //console.log(snap.docs);
+            const fetchedUserData = snap.docs.map(doc => {
+                //console.log(doc.data());
+                return (
+                    {...doc.data(), 'id': doc.id}
+                    )
+                }
+            )
+            //console.log(fetchedUserData);
+            setuserData(fetchedUserData)
         });
+        
         return () => currentUserData()
     }, [currentUser.uid]);
+
+    //console.log(userData);
+    //console.log(currentUser);
+
 
     if(videos.length === 0){
         return (
@@ -99,13 +113,22 @@ const Video = ({videos, fetching}) => {
 
 const mapStateToProps = (state) => {
     const {excercises, isFetching} = state.trainerState
+    //console.log(excercises)
     return {
         isFetching,
-        videos: excercises
+        videos: excercises.sort( (a, b) => {
+			if (a.category < b.category) {
+				return -1;
+			}
+			if (a.category > b.category) {
+				return 1;
+			}
+			return 0;
+		})
     }
 }
 
- export default connect(mapStateToProps)(Video)
+export default connect(mapStateToProps)(Video)
 
 
 

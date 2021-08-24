@@ -9,11 +9,8 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     firebaseApp.auth().onAuthStateChanged((user) => {
       setCurrentUser(user)
-      console.log('User Online: ', user.email) 
-      
+      user? console.log('Sesión iniciada de: ', user.email) : console.log('No hay sesión activa')
     });
-
-    
   }, []);
   
   

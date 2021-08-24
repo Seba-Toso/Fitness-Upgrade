@@ -81,5 +81,4 @@ export const videos = [
             {name: 'Press plano con mancuernas', link: 'https://www.instagram.com/p/CJpHGAPFF6H/?utm_medium=copy_link'},
         ]
     },
-  
 ]

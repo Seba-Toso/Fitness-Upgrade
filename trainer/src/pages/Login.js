@@ -21,7 +21,7 @@ const Login = ({alert}) => {
         .then((response)=>{
             const form = document.querySelector('#form');
             form.reset()
-           
+
             if(response.user.email === "admin@gmail.com") {
                 alert.show('BackOffice Privado', {type: 'success'})   
                 return setTimeout(() => {
@@ -35,6 +35,7 @@ const Login = ({alert}) => {
             
         })
         .catch( err => {
+            console.log(err);
             alert.show('Error en datos ingresados', {type: 'error'})     
         })
     }

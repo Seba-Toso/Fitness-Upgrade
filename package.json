@@ -7,7 +7,8 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "trainer": "npm start --prefix trainer",
-    "dev": "concurrently \"npm run trainer\" \"npm run server\""
+    "dev": "cross-env NODE_ENV=production concurrently \"npm run trainer\" \"npm run server\"",
+    "dev-test": "cross-env NODE_ENV=test concurrently \"npm run trainer\" \"npm run server\""
   },
   "author": "IT-Devs Web Desing",
   "license": "MIT",
@@ -16,6 +17,7 @@
     "colors": "1.4.0",
     "concurrently": "6.0.2",
     "cors": "2.8.5",
+    "cross-env": "7.0.3",
     "dotenv": "8.2.0",
     "express": "4.17.1",
     "firebase": "7.15.3",

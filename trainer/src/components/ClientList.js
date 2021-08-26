@@ -6,7 +6,7 @@ import { IoCheckbox, IoCloseCircle } from 'react-icons/io5';
 const ClientList = () => {
     const [data, setData] = useState([]);
     const [isFetching, setIsfetching] = useState(false);
- 
+
 
 
     useEffect(() => { 
@@ -47,65 +47,65 @@ const ClientList = () => {
                         return (
                             <div className="table" key={doc.id} >
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>PAGO</div>
+                                    <div className='tableTitle'>PAGO </div>
                                     <div className='tableDescription tableAction' onClick={() => handleCancelSubscription(index, doc.id)}>
-                                    {doc.payment ? <IoCheckbox color='#48ad5f' fontSize={18}/> : <IoCloseCircle color='#a03549' fontSize={18}/>}
+                                    {doc.payment ? <IoCheckbox color='#48ad5f' fontSize={18}/> : <IoCloseCircle color='#a03549' fontSize={18}/>} - {doc.payment ? 'Activo' : 'Inactivo'}
                                     </div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>ID</div>
+                                    <div className='tableTitle'>ID: </div>
                                     <div className='tableDescription'>{doc.id}</div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>NOMBRE</div>
+                                    <div className='tableTitle'>NOMBRE: </div>
                                     <div className='tableDescription'>{doc.firstName}</div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>APELLIDO</div>
+                                    <div className='tableTitle'>APELLIDO: </div>
                                     <div className='tableDescription'>{doc.lastName}</div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>E-MAIL</div>
+                                    <div className='tableTitle'>E-MAIL: </div>
                                     <div className='tableDescription'>{doc.email}</div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>ANTECEDENTES MEDICOS</div>
+                                    <div className='tableTitle'>ANTECEDENTES MEDICOS: </div>
                                     <div className='tableDescription'>{doc.medicalHistory}</div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>PESO</div>
+                                    <div className='tableTitle'>PESO: </div>
                                     <div className='tableDescription'>{doc.weight}</div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>ALTURA</div>
+                                    <div className='tableTitle'>ALTURA: </div>
                                     <div className='tableDescription'>{doc.height}</div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>EDAD</div>
+                                    <div className='tableTitle'>EDAD: </div>
                                     <div className='tableDescription'>{doc.age}</div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>CANTIDAD DE DIAS PARA ENTRENAR</div>
+                                    <div className='tableTitle'>CANTIDAD DE DIAS PARA ENTRENAR: </div>
                                     <div className='tableDescription'>{doc.availableDays}</div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>LUGAR DE ENTRENAMIENTO</div>
+                                    <div className='tableTitle'>LUGAR DE ENTRENAMIENTO: </div>
                                     <div className='tableDescription'>{doc.trainingPlace}</div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>DISPONE DE ELEMENTOS? DETALLARLOS:</div>
+                                    <div className='tableTitle'>DISPONE DE ELEMENTOS? DETALLARLOS: </div>
                                     <div className='tableDescription'>{doc.tools}</div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>OBJETIVO</div>
+                                    <div className='tableTitle'>OBJETIVO: </div>
                                     <div className='tableDescription'>{doc.target}</div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>NUMERO DE CUPON DE OPERACION</div>
+                                    <div className='tableTitle'>NUMERO DE CUPON DE OPERACION: </div>
                                     <div className='tableDescription'>{doc.cuponNumber}</div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>FOTO DE FRENTE</div>
+                                    <div className='tableTitle'>FOTO DE FRENTE: </div>
                                     <div className='tableDescription'>
                                         <img 
                                         src={doc.imageFront} 
@@ -115,7 +115,7 @@ const ClientList = () => {
                                     </div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>FOTO DE ESPALDA</div>
+                                    <div className='tableTitle'>FOTO DE ESPALDA: </div>
                                     <div className='tableDescription'>
                                         <img 
                                         src={doc.imageBack} 
@@ -125,7 +125,7 @@ const ClientList = () => {
                                     </div>
                                 </span>
                                 <span className='tableItem'>
-                                    <div className='tableTitle'>BORRAR</div>
+                                    <div className='tableTitle'>BORRAR USUARIO</div>
                                     <div className='tableDescription tableAction' onClick={() => handleDelete(index, doc.id)}> 
                                     <svg 
                                         type="button" 

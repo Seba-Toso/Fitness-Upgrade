@@ -11,8 +11,9 @@
 	-webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff; 
 	-moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #ffffff;  
 	box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;  
-	 
-	 }.myButton:hover{
+
+}
+.myButton:hover{
 	padding:11px 32px; 
 	border:solid 1px #004F72; 
 	-webkit-border-radius:4px;
@@ -31,5 +32,4 @@
 	-webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff; 
 	-moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #ffffff;  
 	box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;  
-	 
-	}
+}

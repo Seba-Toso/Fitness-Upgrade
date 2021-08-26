@@ -5,7 +5,7 @@ import './Css/About.css';
 
 const About = () => {
     return (
-        <div>
+        <div className="layoutContainer">
             <section className="choseus-section spad">
                 <div className="container">
                     <div className="row">

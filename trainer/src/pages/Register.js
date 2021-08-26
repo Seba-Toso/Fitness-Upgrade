@@ -34,6 +34,7 @@ const Register = ({alert}) => {
     const history = useHistory();
     const [messageFront, setMessageFront] = useState('*Es recomendable la foto no pese más de 1MB')
     const [messageBack, setMessageBack] = useState('*Es recomendable la foto no pese más de 1MB')
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => { 
         if(currentUser){
@@ -53,7 +54,8 @@ const Register = ({alert}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-    
+        setIsLoading(true)
+
         firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((credential) => {
             createUserInDB(credential.user)
@@ -61,6 +63,7 @@ const Register = ({alert}) => {
         })
         .catch( err => {
             console.log(err)
+            setIsLoading(false)
             alert.show(`Error en los datos ingresados`, {type: 'error'})     
         })
     }
@@ -87,12 +90,14 @@ const Register = ({alert}) => {
             firebase.auth().signInWithEmailAndPassword( email,password )
         }).catch((err) => {
             console.log(err)
+            setIsLoading(false)
         })
         .finally( () => {
             const form = document.querySelector('#form');
             form.reset()
 
             alert.show(`Exitos ${firstName}! `, {type: 'success'})  
+            setIsLoading(false)
             history.push('/')
         })   
     }
@@ -145,7 +150,7 @@ const Register = ({alert}) => {
 
 
     return (
-        <div>
+        <div className="layoutContainer">
             <section className="choseus-section spad back">
                 <div className="container">
                     <div className="row">
@@ -334,9 +339,11 @@ const Register = ({alert}) => {
                                     <button 
                                         className="mt-5 createAccount" 
                                         type="submit"
-                                        disabled={imageFront && imageBack && email && password ? false : true}
+                                        disabled={imageFront && imageBack && email && password && !isLoading ? false : true}
                                     >
-                                        Crear cuenta
+                                        {
+                                            !isLoading ? 'Crear cuenta' : 'Creando cuenta, por favor espere.'
+                                        }
                                     </button>
                                     <p className="mt-2">Ud. ya tenés cuenta? <Link to="/login">Login</Link></p>    
                                 </form> 

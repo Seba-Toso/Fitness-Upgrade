@@ -22,3 +22,23 @@ code {
   min-width: 100%;
   max-width: 100%;
 }
+
+.layoutContainer{
+  min-height: 75vh;
+  background: #151515;
+}
+
+.tableTitle, .tableDescription{
+  min-height: 2.2rem;
+}
+
+@media (max-width: 758px) {
+  .tableTitle, .tableDescription{
+    min-height: 3.5rem;
+  }
+}
+@media (max-width: 685px) {
+  .tableTitle, .tableDescription{
+    min-height: 4.5rem;
+  }
+}

@@ -3,7 +3,7 @@ import 'firebase/firestore';
 import 'firebase/storage';
 import 'firebase/auth';
 
-const environment = 'test'
+const environment = 'production'
 
 
 const firebaseApp = environment === 'test' ?  

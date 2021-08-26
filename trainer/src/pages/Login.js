@@ -43,7 +43,7 @@ const Login = ({alert}) => {
 
 
     return (
-        <div>
+        <div className="layoutContainer">
             <div>
             <section className="choseus-section spad back">
                 <div className="container">

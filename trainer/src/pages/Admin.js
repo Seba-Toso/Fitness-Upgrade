@@ -5,10 +5,9 @@ import AdminVideos from '../components/AdminVideos';
 import './Css/Admin.css';
 
 const Admin = () => {
-   
 
     return (
-        <div className="back-admin">
+        <div className="back-admin layoutContainer">
             <section className="choseus-section spad" id="comments">
                 <div className="container">
                     <div className="row">

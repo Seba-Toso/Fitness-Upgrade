@@ -37,7 +37,7 @@ const Video = ({videos, fetching}) => {
 
     if(videos.length === 0){
         return (
-            <div>
+            <div className="layoutContainer">
                 <section className="classes-section spad">
                     <div className="container">
                         <div className="row mb-5">
@@ -70,7 +70,7 @@ const Video = ({videos, fetching}) => {
     }
 
     return (
-        <div>
+        <div className="layoutContainer">
             <section className="classes-section spad">
                 <div className="container">
                     <div className="row mb-5">

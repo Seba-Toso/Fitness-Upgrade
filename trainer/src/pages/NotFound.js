@@ -6,8 +6,8 @@ import './Css/404.css'
 
 const NotFound = () => {
     return (
-        <div >
-             <section className="section-404 mt-4">
+        <div className="layoutContainer">
+            <section className="section-404 mt-4">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
@@ -17,7 +17,7 @@ const NotFound = () => {
                                 <p>Disculpas, pero quiza no exista, haya sido removida o cambiada.</p>
                                 <img className="mt-2 rounded" src={Logo} width="300px" alt="slogan"/><br/>
                                 <Link to="/"><i className="fa fa-home mt-5"></i> Ir al Home</Link>
-                         </div>
+                        </div>
                         </div>
                     </div>
                 </div>

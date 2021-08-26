@@ -6,12 +6,12 @@ import './Css/Contact.css';
 
 
 const Contact = ({alert}) => {
-   const [name, setName] = useState('');
-   const [surname, setSurname] = useState('');
-   const [email, setEmail] = useState('');
-   const [comment, setComment] = useState('');
+    const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
+    const [email, setEmail] = useState('');
+    const [comment, setComment] = useState('');
 
-   const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         db.collection('Comment').add({
             name,
@@ -25,12 +25,12 @@ const Contact = ({alert}) => {
         }).catch( err => {
             alert.show('Error en datos ingresados', {type: 'error'})     
         })   
-   }
+    }
 
     
 
     return (
-        <div>
+        <div className="layoutContainer">
             <section className="choseus-section spad back">
                 <div className="container">
                     <div className="row">
@@ -49,7 +49,7 @@ const Contact = ({alert}) => {
                     </div>
                 </div>
             </section>
-           <section className="contact-section spad">
+            <section className="contact-section spad">
                 <div className="container">
                     <div className="row">   
                         <div className="col-lg-8 mx-auto">

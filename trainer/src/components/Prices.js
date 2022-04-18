@@ -36,7 +36,7 @@ const Prices = () => {
                                 {<h3>PLAN FULL<p><b>(Plan Mensual)</b><br /><small>Incluye control cada 15 dias via ZOOM</small></p></h3>}
                                 <div className="pi-price" style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
                                     <h3 style={{ textDecoration: 'line-through', transform: 'skewY(0)' }}>$5200</h3>
-                                    <h2>$4490<small style={{ fontSize: 16 }}>c/u</small></h2>
+                                    <h2>$4490<small style={{ fontSize: 16 }}></small></h2>
                                     {/*<span>SINGLE className</span>*/}
                                 </div>
                                 <ul>

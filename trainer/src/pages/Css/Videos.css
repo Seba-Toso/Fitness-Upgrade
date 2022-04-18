@@ -2,6 +2,13 @@
     background-color: #222;
 }
 
+.videoSearchInput:focus,
+.videoSearchInput:active,
+.videoSearchInput:hover {
+    box-shadow: none !important;
+    outline: none;
+}
+
 .videoItem {
     background-color: #222;
     color: #fafafa;

@@ -54,35 +54,38 @@ const Video = ({ videos, fetching }) => {
                                 <div className="section-title">
                                     <span>Nuestros Ejercicios</span>
                                     <h2>Videos Explicativos</h2>
-                                    <span style={{ paddingBottom: '5px', borderBottom: '1px solid #F36100', margin: '0 auto' }}>
-                                        <input
-                                            type="text"
-                                            className='videoSearchInput'
-                                            onChange={(e) => handleInput(e)}
-                                            placeholder="Busca un video"
-                                            disabled={currentVideos.length === 0}
-                                            style={{
-                                                width: '250px',
-                                                marginTop: '9px',
-                                                backgroundColor: 'transparent',
-                                                outline: 'none',
-                                                border: 'none',
-                                                borderRadius: '0',
-                                                color: 'white',
-                                                boxShadow: 'none'
-                                            }}
-                                            value={inputFilter}
-                                        />
-                                        {
-                                            inputFilter.length > 0 &&
-                                            <MdHighlightOff
-                                                onClick={handleReset}
+                                    {
+                                        currentUser &&
+                                        <span style={{ paddingBottom: '5px', borderBottom: '1px solid #F36100', margin: '0 auto' }}>
+                                            <input
+                                                type="text"
+                                                className='videoSearchInput'
+                                                onChange={(e) => handleInput(e)}
+                                                placeholder="Busca un video"
+                                                disabled={currentVideos.length === 0}
                                                 style={{
-                                                    cursor: 'pointer',
+                                                    width: '250px',
+                                                    marginTop: '9px',
+                                                    backgroundColor: 'transparent',
+                                                    outline: 'none',
+                                                    border: 'none',
+                                                    borderRadius: '0',
+                                                    color: 'white',
+                                                    boxShadow: 'none'
                                                 }}
+                                                value={inputFilter}
                                             />
-                                        }
-                                    </span>
+                                            {
+                                                inputFilter.length > 0 &&
+                                                <MdHighlightOff
+                                                    onClick={handleReset}
+                                                    style={{
+                                                        cursor: 'pointer',
+                                                    }}
+                                                />
+                                            }
+                                        </span>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -116,35 +119,38 @@ const Video = ({ videos, fetching }) => {
                             <div className="section-title">
                                 <span>Nuestros Ejercicios</span>
                                 <h2>Videos Explicativos</h2>
-                                <span style={{ paddingBottom: '5px', borderBottom: '1px solid #F36100', margin: '0 auto' }}>
-                                    <input
-                                        type="text"
-                                        className='videoSearchInput'
-                                        onChange={(e) => handleInput(e)}
-                                        placeholder="Busca un video"
-                                        disabled={currentVideos.length === 0}
-                                        style={{
-                                            width: '250px',
-                                            marginTop: '9px',
-                                            backgroundColor: 'transparent',
-                                            outline: 'none',
-                                            border: 'none',
-                                            borderRadius: '0',
-                                            color: 'white',
-                                            boxShadow: 'none'
-                                        }}
-                                        value={inputFilter}
-                                    />
-                                    {
-                                        inputFilter.length > 0 &&
-                                        <MdHighlightOff
-                                            onClick={handleReset}
+                                {
+                                    (!userData[0]?.payment && currentUser.email !== 'admin@gmail.com') ||
+                                    <span style={{ paddingBottom: '5px', borderBottom: '1px solid #F36100', margin: '0 auto' }}>
+                                        <input
+                                            type="text"
+                                            className='videoSearchInput'
+                                            onChange={(e) => handleInput(e)}
+                                            placeholder="Busca un video"
+                                            disabled={currentVideos.length === 0}
                                             style={{
-                                                cursor: 'pointer',
+                                                width: '250px',
+                                                marginTop: '9px',
+                                                backgroundColor: 'transparent',
+                                                outline: 'none',
+                                                border: 'none',
+                                                borderRadius: '0',
+                                                color: 'white',
+                                                boxShadow: 'none'
                                             }}
+                                            value={inputFilter}
                                         />
-                                    }
-                                </span>
+                                        {
+                                            inputFilter.length > 0 &&
+                                            <MdHighlightOff
+                                                onClick={handleReset}
+                                                style={{
+                                                    cursor: 'pointer',
+                                                }}
+                                            />
+                                        }
+                                    </span>
+                                }
                             </div>
                         </div>
                     </div>
@@ -163,7 +169,7 @@ const Video = ({ videos, fetching }) => {
                                             El abono mensual no se ha realizado o fue hecho fuera de término.
                                         </h5>
                                         <br />
-                                        <p className='text-center'>Para acceder nuevamente a los videos, realice el pago, guarde el número de comprobante y luego active la opción Update para  completar el formulario de Actualización
+                                        <p className='text-center'>Para acceder nuevamente a los videos, realice el pago, guarde el número de comprobante y luego, en registro, active la opción "Update" para completar el formulario de Actualización
                                             de pago con el nuevo número de comprobante, esto actualizará el pago y podrá ver los videos.
                                         </p>
                                     </div>

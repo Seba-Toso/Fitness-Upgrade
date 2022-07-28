@@ -33,10 +33,10 @@ const Prices = () => {
                         {/*CARD 1*/}
                         <div className="col-lg-4 col-md-8">
                             <div className="ps-item">
-                                {<h3>PLAN FULL<p><b>(Plan Mensual)</b><br /><small>Incluye control cada 15 dias via ZOOM</small></p></h3>}<br />
+                                {<h3>PLAN VIP<p><b>(Plan Mensual)</b><br /><small>Incluye control cada 15 dias via ZOOM</small></p></h3>}<br />
                                 <div className="pi-price" style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
-                                    <h3 style={{ textDecoration: 'line-through', transform: 'skewY(0)' }}>$5200</h3>
-                                    <h2>$4490<small style={{ fontSize: 16 }}></small></h2>
+                                    <h3 style={{ textDecoration: 'line-through', transform: 'skewY(0)' }}>$9500</h3>
+                                    <h2>$8100<small style={{ fontSize: 16 }}>c/u</small></h2>
                                     {/*<span>SINGLE className</span>*/}
                                 </div>
                                 <ul>
@@ -50,7 +50,7 @@ const Prices = () => {
                                         <small>*Suscripción requerida</small>
                                     </li>
                                 </ul>
-                                <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848026c8c40180288b6207003d"
+                                <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848243b8d701824573573400db"
                                     className="primary-btn pricing-btn"
                                     target="_blank" rel="noreferrer"
                                 >ME SUMO!</a>
@@ -59,10 +59,10 @@ const Prices = () => {
                         {/*CARD 2*/}
                         <div className="col-lg-4 col-md-8">
                             <div className="ps-item">
-                                {<h3>COACHING ONLINE<p><b>(Plan Mensual)</b></p></h3>}<br /><br />
+                                {<h3>PLAN FULL<p><b>(Plan Mensual)</b><br /><small>Incluye 1 sesion via zoom por mes</small></p></h3>}<br />
                                 <div className="pi-price" style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
-                                    <h3 style={{ textDecoration: 'line-through', transform: 'skewY(0)' }}>$4100</h3>
-                                    <h2>$3450</h2>
+                                    <h3 style={{ textDecoration: 'line-through', transform: 'skewY(0)' }}>$7000</h3>
+                                    <h2>$6100<small style={{ fontSize: 16 }}></small></h2>
                                     {/*<span>SINGLE className</span>*/}
                                 </div>
                                 <ul>
@@ -76,19 +76,19 @@ const Prices = () => {
                                         <small>*Suscripción requerida</small>
                                     </li>
                                 </ul>
-                                <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848023eadc0180288ceca000a9"
+                                <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084823ab6e701824574a3f803fd"
                                     className="primary-btn pricing-btn"
                                     target="_blank" rel="noreferrer"
-                                >Empecemos!</a>
+                                >ME SUMO!</a>
                             </div>
                         </div>
                         {/*CARD 3*/}
                         <div className="col-lg-4 col-md-8">
                             <div className="ps-item">
-                                {<h3>COACHING ONLINE<p><b>(Pack 2 meses)</b><br /><small>Abonando 2 meses, el segundo te queda con un 25% OFF!</small></p></h3>}
+                                {<h3>COACHING ONLINE<p><b>(Plan Mensual)</b></p></h3>}<br /><br />
                                 <div className="pi-price" style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
-                                    <h3 style={{ textDecoration: 'line-through', transform: 'skewY(0)' }}>$3450</h3>
-                                    <h2>$3100<small style={{ fontSize: 16 }}>c/u</small></h2>
+                                    <h3 style={{ textDecoration: 'line-through', transform: 'skewY(0)' }}>$4900</h3>
+                                    <h2>$4200</h2>
                                     {/*<span>SINGLE className</span>*/}
                                 </div>
                                 <ul>
@@ -102,13 +102,12 @@ const Prices = () => {
                                         <small>*Suscripción requerida</small>
                                     </li>
                                 </ul>
-                                <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848023eab90180288f596e00b0"
+                                <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848244949c01824577533b00af"
                                     className="primary-btn pricing-btn"
                                     target="_blank" rel="noreferrer"
-                                >ACCEDÉ YA!</a>
+                                >Empecemos!</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>

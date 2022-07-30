@@ -3,6 +3,121 @@ import React from 'react';
 
 
 const Prices = () => {
+
+    const cardInfo = [
+        {
+            title: 'PLAN VIP',
+            title_help: '(Plan Mensual)',
+            subtitle: 'Incluye control cada 15 dias via ZOOM',
+            old_price: 9500,
+            new_price: 8100,
+            price_group: false,
+            items: [
+                'Plan Personalizado de Entrenamiento',
+                'Actualización cada 5 semanas',
+                'Video demostrativo para cada ejercicio',
+                'Seguimiento 24/7 vía Mail',
+                'Guía alimentaria',
+                'Acceso a plataforma',
+                '*Suscripción requerida',
+            ],
+            button: 'ME SUMO!',
+            button_link: 'https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848243b8d701824573573400db'
+        },
+        {
+            title: 'PLAN FULL',
+            title_help: '(Plan Mensual)',
+            subtitle: 'Incluye 1 sesion via zoom por mes',
+            old_price: 7000,
+            new_price: 6100,
+            price_group: false,
+            items: [
+                'Plan Personalizado de Entrenamiento',
+                'Actualización cada 5 semanas',
+                'Video demostrativo para cada ejercicio',
+                'Seguimiento 24/7 vía Mail',
+                'Guía alimentaria',
+                'Acceso a plataforma',
+                '*Suscripción requerida',
+            ],
+            button: 'ME SUMO!',
+            button_link: 'https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084823ab6e701824574a3f803fd'
+        },
+        {
+            title: 'COACHING ONLINE',
+            title_help: '(Plan Mensual)',
+            subtitle: '',
+            old_price: 4900,
+            new_price: 4200,
+            price_group: false,
+            items: [
+                'Plan Personalizado de Entrenamiento',
+                'Actualización cada 5 semanas',
+                'Video demostrativo para cada ejercicio',
+                'Seguimiento 24/7 vía Mail',
+                'Guía alimentaria',
+                'Acceso a plataforma',
+                '*Suscripción requerida',
+            ],
+            button: 'Empecemos!',
+            button_link: 'https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848244949c01824577533b00af'
+        }
+    ]
+
+    const renderPrices = () => {
+        return cardInfo.map(card => {
+            return (
+                <div className="col-lg-4 col-md-8">
+                    <div className="ps-item">
+                        {
+                            <h3>
+                                {card?.title}
+                                <p>
+                                    <b>
+                                        {card?.title_help || <br />}
+                                    </b>
+                                    <br />
+                                    <small>
+                                        {card?.subtitle || <br />}
+                                    </small>
+                                </p>
+                            </h3>
+                        }
+                        <br />
+                        <div className="pi-price" style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
+                            <h3 style={{ textDecoration: 'line-through', transform: 'skewY(0)' }}>
+                                ${card?.old_price}
+                            </h3>
+                            <h2>
+                                ${card?.new_price}
+                                <small style={{ fontSize: 16 }}>
+                                    {card?.price_group && 'c/u'}
+                                </small>
+                            </h2>
+                        </div>
+                        <ul>
+                            {
+                                card?.items.map((item, index) => {
+                                    if (index === (card.items.length - 1)) {
+                                        return <li><small>{item}</small></li>
+                                    }
+                                    return <li>{item}</li>
+                                })
+                            }
+                        </ul>
+                        <a
+                            href={card?.button_link}
+                            className="primary-btn pricing-btn"
+                            target="_blank" rel="noreferrer"
+                        >
+                            {card?.button}
+                        </a>
+                    </div>
+                </div>
+            )
+        })
+    }
+
     return (
         <div>
             <section className="pricing-section spad" id="prices">
@@ -30,84 +145,9 @@ const Prices = () => {
                         </div>
                     </div>
                     <div className="row justify-content-center">
-                        {/*CARD 1*/}
-                        <div className="col-lg-4 col-md-8">
-                            <div className="ps-item">
-                                {<h3>PLAN VIP<p><b>(Plan Mensual)</b><br /><small>Incluye control cada 15 dias via ZOOM</small></p></h3>}<br />
-                                <div className="pi-price" style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
-                                    <h3 style={{ textDecoration: 'line-through', transform: 'skewY(0)' }}>$9500</h3>
-                                    <h2>$8100<small style={{ fontSize: 16 }}>c/u</small></h2>
-                                    {/*<span>SINGLE className</span>*/}
-                                </div>
-                                <ul>
-                                    <li>Plan Personalizado de Entrenamiento</li>
-                                    <li>Actualización cada 5 semanas</li>
-                                    <li>Video demostrativo para cada ejercicio</li>
-                                    <li>Seguimiento 24/7 vía Mail</li>
-                                    <li>Guía alimentaria</li>
-                                    <li>
-                                        <div>Acceso a plataforma</div>
-                                        <small>*Suscripción requerida</small>
-                                    </li>
-                                </ul>
-                                <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848243b8d701824573573400db"
-                                    className="primary-btn pricing-btn"
-                                    target="_blank" rel="noreferrer"
-                                >ME SUMO!</a>
-                            </div>
-                        </div>
-                        {/*CARD 2*/}
-                        <div className="col-lg-4 col-md-8">
-                            <div className="ps-item">
-                                {<h3>PLAN FULL<p><b>(Plan Mensual)</b><br /><small>Incluye 1 sesion via zoom por mes</small></p></h3>}<br />
-                                <div className="pi-price" style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
-                                    <h3 style={{ textDecoration: 'line-through', transform: 'skewY(0)' }}>$7000</h3>
-                                    <h2>$6100<small style={{ fontSize: 16 }}></small></h2>
-                                    {/*<span>SINGLE className</span>*/}
-                                </div>
-                                <ul>
-                                    <li>Plan Personalizado de Entrenamiento</li>
-                                    <li>Actualización cada 5 semanas</li>
-                                    <li>Video demostrativo para cada ejercicio</li>
-                                    <li>Seguimiento 24/7 vía Mail</li>
-                                    <li>Guía alimentaria</li>
-                                    <li>
-                                        <div>Acceso a plataforma</div>
-                                        <small>*Suscripción requerida</small>
-                                    </li>
-                                </ul>
-                                <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084823ab6e701824574a3f803fd"
-                                    className="primary-btn pricing-btn"
-                                    target="_blank" rel="noreferrer"
-                                >ME SUMO!</a>
-                            </div>
-                        </div>
-                        {/*CARD 3*/}
-                        <div className="col-lg-4 col-md-8">
-                            <div className="ps-item">
-                                {<h3>COACHING ONLINE<p><b>(Plan Mensual)</b></p></h3>}<br /><br />
-                                <div className="pi-price" style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
-                                    <h3 style={{ textDecoration: 'line-through', transform: 'skewY(0)' }}>$4900</h3>
-                                    <h2>$4200</h2>
-                                    {/*<span>SINGLE className</span>*/}
-                                </div>
-                                <ul>
-                                    <li>Plan Personalizado de Entrenamiento</li>
-                                    <li>Actualización cada 5 semanas</li>
-                                    <li>Video demostrativo para cada ejercicio</li>
-                                    <li>Seguimiento 24/7 vía Mail</li>
-                                    <li>Guía alimentaria</li>
-                                    <li>
-                                        <div>Acceso a plataforma</div>
-                                        <small>*Suscripción requerida</small>
-                                    </li>
-                                </ul>
-                                <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848244949c01824577533b00af"
-                                    className="primary-btn pricing-btn"
-                                    target="_blank" rel="noreferrer"
-                                >Empecemos!</a>
-                            </div>
-                        </div>
+                        {
+                            renderPrices()
+                        }
                     </div>
                 </div>
             </section>

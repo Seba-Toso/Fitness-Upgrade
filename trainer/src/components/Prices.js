@@ -4,6 +4,7 @@ import React from 'react';
 
 const Prices = () => {
 
+    //Información de los planes
     const cardInfo = [
         {
             title: 'PLAN VIP',
@@ -67,7 +68,7 @@ const Prices = () => {
     const renderPrices = () => {
         return cardInfo.map(card => {
             return (
-                <div className="col-lg-4 col-md-8">
+                <div className="col-lg-4 col-md-8" key={card.title+'-'+card.new_price}>
                     <div className="ps-item">
                         {
                             <h3>
@@ -99,9 +100,9 @@ const Prices = () => {
                             {
                                 card?.items.map((item, index) => {
                                     if (index === (card.items.length - 1)) {
-                                        return <li><small>{item}</small></li>
+                                        return <li key={card.title+'-'+item}><small>{item}</small></li>
                                     }
-                                    return <li>{item}</li>
+                                    return <li key={card.title+'-'+item}>{item}</li>
                                 })
                             }
                         </ul>

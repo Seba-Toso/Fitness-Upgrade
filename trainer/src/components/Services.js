@@ -7,6 +7,66 @@ import service4 from '../assets/Bíceps.jpg';
 
 
 const Services = () => {
+
+    //Información de servicios dados
+    const servicesList = [
+        {
+            title: 'Plan de entrenamiento personalizado',
+            subtitle: 'Te pido tus datos y hacemos un plan totalmente personalizado que se adapte a tu forma de vida con atencion 24/7',
+            pd:'',
+            image: service2
+        },
+        {
+            title: 'Guía de entrenamiento',
+            subtitle: 'Pedi mi plan general en base a tus objtivos',
+            pd: '(Aumento de masa muscular / Reduccion de grasa corporal / Resistencia)',
+            image: service1
+        },
+        {
+            title: 'Tips nutricionales',
+            subtitle: 'Te aconsejo como dividir tus comidas para poder acompañar tu plan personalizado',
+            pd: '(Atencion: no son planes nutricionales)',
+            image: service3
+        },
+        {
+            title: 'Videos demostrativos',
+            subtitle: 'Todos los ejercicios y sus variaciones con sus repectivos videos en gimnasio o casa. Vas a poder acceder desde tu celular o computadora',
+            pd: '',
+            image: service4
+        },
+    ]
+
+    const serviceRenderer = () => {
+        return servicesList.map( (service,index) => {
+            return (
+                <div className="col-lg-3 col-md-6" key={service.title+'-'+index}>
+                    <div className="class-item">
+                    <picture>
+                        <source srcSet={service.image} type="image/svg+xml"/>
+                        <img src={service.image} className="img-fluid" alt="services" loading='lazy' />
+                    </picture>
+                        <div className="text-center ci-text">
+                            <span>{service.title}</span>
+                            <p className="text-justify m-3">
+                                {service.subtitle}
+                                {
+                                    service.pd && 
+                                    <>
+                                    <br/>
+                                    {service.pd}
+                                    </>    
+                                }
+                            </p>
+                            <br/>
+                            <br/>
+                            <a href="#prices"><i className="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            )
+        })
+    }
+
     return (
         <div>
             <section className="classes-section spad" id="services">
@@ -20,70 +80,7 @@ const Services = () => {
                         </div>
                     </div>
                     <div className="row">
-                       
-                        <div className="col-lg-3 col-md-6">
-                            <div className="class-item">
-                            ​<picture>
-                            <source srcSet={service2} type="image/svg+xml"/>
-                              <img src={service2} className="img-fluid" alt="services" loading='lazy' />
-                            </picture>
-                                <div className="text-center ci-text">
-                                    <span>Plan de entrenamiento personalizado</span>
-                                    <p className="text-justify m-3">Te pido tus datos y hacemos un plan totalmente personalizado que se adapte a tu forma de vida con atencion 24/7</p>
-                                    <br/>
-                                    <br/>
-                                    <a href="#prices"><i className="fa fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6">
-                            <div className="class-item">
-                            ​<picture>
-                            <source srcSet={service1} type="image/svg+xml"/>
-                              <img src={service1} className="img-fluid" alt="services" loading='lazy'/>
-                            </picture>
-                                <div className="text-center ci-text">
-                                    <span>Guía de entrenamiento</span>
-                                    <p className="text-justify m-3">Pedi mi plan general en base a tus objtivos <br/>(Aumento de masa muscular / Reduccion de grasa corporal / Resistencia)</p>
-                                    <br/>
-                                    <br/>
-                                    <a href="#prices"><i className="fa fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6">
-                            <div className="class-item">
-                            ​<picture>
-                            <source srcSet={service3} type="image/svg+xml"/>
-                              <img src={service3} className="img-fluid" alt="services" loading='lazy'/>
-                            </picture>
-                                <div className="text-center ci-text">
-                                    <span>Tips nutricionales</span>
-                                    <p className="text-justify m-3">
-                                        Te aconsejo como dividir tus comidas para poder acompañar tu plan personalizado <br/>(Atencion: no son planes nutricionales)
-                                    </p>
-                                    <br/>
-                                    <br/>
-                                    <a href="#prices"><i className="fa fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6">
-                            <div className="class-item">
-                            ​<picture>
-                            <source srcSet={service4} type="image/svg+xml"/>
-                              <img src={service4} className="img-fluid" alt="services" loading='lazy'/>
-                            </picture>
-                                <div className="text-center ci-text">
-                                    <span>Videos demostrativos</span>
-                                    <p className="text-justify m-3">Todos los ejercicios y sus variaciones con sus repectivos videos en gimnasio o casa.
-                                                                    Vas a poder acceder desde tu celular o computadora</p>
-                                    <br/>
-                                    <br/>
-                                    <a href="#prices"><i className="fa fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        {serviceRenderer()}
                     </div>
                 </div>
             </section>

@@ -25,11 +25,12 @@ const Register = ({alert}) => {
     const [tools, setTools] = useState('');
     const [target, setTarget] = useState('');
     const [medicalHistory, setMedicalHistory] = useState('');
-    const [cuponNumber, setCuponNumber] = useState('');
+    //const [cuponNumber, setCuponNumber] = useState('');
     const [password, setPassword] = useState('');
     const [imageFront, setImageFront] = useState('');
     const [imageBack, setImageBack] = useState('');
-    const payment = cuponNumber.length > 1 ? true : false
+    //const payment = cuponNumber.length > 1 ? true : false
+    const payment = false
     const firebase = useFirebaseApp();
     const history = useHistory();
     const [messageFront, setMessageFront] = useState('*Es recomendable la foto no pese más de 1MB')
@@ -82,7 +83,7 @@ const Register = ({alert}) => {
             tools,
             target, 
             medicalHistory,
-            cuponNumber,
+            //cuponNumber,
             imageFront,
             imageBack,
             payment
@@ -103,15 +104,15 @@ const Register = ({alert}) => {
     }
     
     
-    const handleUpdateSubmit = (event) => {
-        event.preventDefault()
-        const updatedUser = { ...userData, payment: true, cuponNumber}
-        db.collection('Suscription').doc(userData.id).set(updatedUser)
-        .then(() => {
-            history.push('/video')
-            alert.show('Tu cuenta fue activada', {type: 'success'})     
-        })
-    }
+    // const handleUpdateSubmit = (event) => {
+    //     event.preventDefault()
+    //     const updatedUser = { ...userData, payment: true, /*cuponNumber*/}
+    //     db.collection('Suscription').doc(userData.id).set(updatedUser)
+    //     .then(() => {
+    //         history.push('/video')
+    //         alert.show('Tu cuenta fue activada', {type: 'success'})     
+    //     })
+    // }
 
     const onFileChangeFront = async (e) => {
         if(!e.target.files[0]){
@@ -184,20 +185,21 @@ const Register = ({alert}) => {
                                 <br/>
                                 {
                                 isForUpdate ?
-                                <form onSubmit={handleUpdateSubmit} id="formUpdate">
-                                    <div className="form-row">
-                                    <div className="form-group col-md-6">
-                                    <input type="text" className="form-control"  
-                                        placeholder="Ingrese N~ Cupón de Operación"
-                                        pattern="^[\s\S]{10,11}$"
-                                        title="Número de Operación invalido."
-                                        value={cuponNumber}
-                                        onChange={(e) => setCuponNumber(e.target.value)}
-                                        />
-                                    </div>
-                                    </div>
-                                    <button className="mt-5" type="submit">Actualizar pago</button>    
-                                </form> 
+                                <></>
+                                // <form onSubmit={handleUpdateSubmit} id="formUpdate">
+                                //     <div className="form-row">
+                                //     <div className="form-group col-md-6">
+                                //     <input type="text" className="form-control"  
+                                //         placeholder="Ingrese N~ Cupón de Operación"
+                                //         pattern="^[\s\S]{10,11}$"
+                                //         title="Número de Operación invalido."
+                                //         value={cuponNumber}
+                                //         onChange={(e) => setCuponNumber(e.target.value)}
+                                //         />
+                                //     </div>
+                                //     </div>
+                                //     <button className="mt-5" type="submit">Actualizar pago</button>    
+                                // </form> 
                                 :
                                 <form onSubmit={handleSubmit} id="form">
                                     <p>* Todos los campos son requeridos</p>
@@ -314,7 +316,7 @@ const Register = ({alert}) => {
                                         </div>
                                     </div>
                                     <div className="form-row">
-                                        <div className="form-group col-md-6">
+                                        {/* <div className="form-group col-md-6">
                                         <small className="form-group col-md-6" style={{color:"#444"}}>El Nro de cupón debe tener entre 10 y 11 caracteres.</small>
                                         <input type="text" className="form-control"  
                                             placeholder="Ingrese N~ Cupón de Operación" 
@@ -324,7 +326,7 @@ const Register = ({alert}) => {
                                             value={cuponNumber}
                                             onChange={(e) => setCuponNumber(e.target.value)}
                                             />
-                                        </div>
+                                        </div> */}
                                         <div className="form-group col-md-6">
                                             <small className="form-group col-md-6" style={{color:"#444"}}>La contraseña debe tener mínimo 6 caracteres.</small>   
                                             <input type="password" className="form-control"  

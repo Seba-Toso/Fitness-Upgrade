@@ -1,0 +1,38 @@
+.alert{
+  margin: 0 auto !important;
+  margin-top: 80px !important;
+  width: 70%;
+  background: #222;
+  color: #fafafa;
+  border-radius: 2px;
+  transform: skewY(0);
+}
+.alert:hover{
+  background: #222;
+  color: #fafafa;
+}
+.alert h2 {
+  font-weight: 400 !important;
+  letter-spacing: 0.75px;
+  line-height: 22px;
+}
+
+@media (max-width: 475px) {
+  .alert{
+    margin-top: 80px;
+    width: 90%;
+    height: 80vh;
+    padding: 10px 20px 20px !important;
+  }
+  .alert .pi-price{
+    height: 70% !important;
+    overflow: scroll !important;
+  }
+  .alert h2{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(250, 250, 250);
+    letter-spacing: 0.5px;
+    line-height: 20px;
+  }
+}

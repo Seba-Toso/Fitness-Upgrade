@@ -1,0 +1,80 @@
+.custom-select{
+  width: 50% !important;
+  border-radius: 0;
+  border: 1px solid #fafafa;
+  color: #fafafa;
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+  appearance: auto;
+  transition: ease-in-out 200ms;
+  opacity: 1;
+}
+.custom-select:hover{
+  background: #fafafa;
+  color: #333;
+}
+.custom-select option{
+  color: #fafafa;
+  background: #222;
+  transition: ease-in-out 200ms;
+}
+.custom-select option::selection{
+  color: #333;
+  background: #f36100;
+}
+.payment-checkout-mp{
+  background-color: #00b1ea;
+  color: #fafafa;
+  padding: 8px 10px;
+  border-radius: 2px;
+  transition: ease-in-out 200ms;
+}
+.payment-checkout-mp:hover{
+  background-color: #00b0eaef;
+  color: #fafafa !important;
+}
+.paymentCheckout .ps-item{
+  background: #fafafa;
+  color: #111111;
+}
+.paymentCheckout .ps-item h3{
+  color: #222;
+}
+.paymentCheckout .ps-item li{
+  color: #111 !important;
+  font-weight: 600 !important;
+}
+
+
+
+.non-visible{
+  opacity: 0;
+}
+.fadeOff{
+  animation: fadeOff 200ms ease-in-out forwards;
+  cursor: none;
+  pointer-events: none;
+}
+@keyframes fadeOff {
+  100% {
+    opacity: 0;
+  }
+}
+.fadeIn{
+  animation: fadeIn 200ms ease-in-out 200ms forwards;
+}
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 475px) {
+  .mobile-col-invert{
+    flex-direction: column-reverse;
+  }
+}

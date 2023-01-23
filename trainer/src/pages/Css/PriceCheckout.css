@@ -11,6 +11,7 @@
   appearance: auto;
   transition: ease-in-out 200ms;
   opacity: 1;
+  padding: 6px 0px;
 }
 .custom-select:hover{
   background: #fafafa;
@@ -24,6 +25,9 @@
 .custom-select option::selection{
   color: #333;
   background: #f36100;
+}
+.checkoutCard{
+  padding: 0;
 }
 .payment-checkout-mp{
   background-color: #00b1ea;
@@ -39,6 +43,7 @@
 .paymentCheckout .ps-item{
   background: #fafafa;
   color: #111111;
+  padding: 40px 10px 50px;
 }
 .paymentCheckout .ps-item h3{
   color: #222;

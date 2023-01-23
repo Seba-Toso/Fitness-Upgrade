@@ -42,3 +42,12 @@ code {
     min-height: 4.5rem;
   }
 }
+
+
+.ps-item_h3{
+	color: #f36100 !important;
+  transition: all 0.5s;
+}
+.ps-item:hover .ps-item_h3{
+  color: #151515 !important;
+}

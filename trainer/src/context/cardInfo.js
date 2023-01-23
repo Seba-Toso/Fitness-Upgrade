@@ -52,7 +52,7 @@ export const cardInfo = [
     old_price: 4900,
     new_price: 4200,
     old_price_uss: false,
-    new_price_uss: false,
+    new_price_uss: 45,
     price_group: false,
     items: [
       'Plan Personalizado de Entrenamiento',
@@ -65,6 +65,7 @@ export const cardInfo = [
     ],
     button: 'Empecemos!',
     payment_link: 'https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848244949c01824577533b00af',
+    payment_link_uss: 'CKWZCK9HZ6CXW',
     button_link: 'priceCheckout?name=coaching'
   }
 ]

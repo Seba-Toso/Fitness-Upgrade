@@ -84,9 +84,7 @@ const PriceCheckout = ({alert}) => {
           <div className="row justify-content-around mobile-col-invert m-2">
             <div className="col-lg-4">
               <div className="section-title">
-
-                <PriceCard card={{...card, title: 'Te incluye', button: false, old_price: false, new_price: false}} containerClassName={"col"} />
-
+                <PriceCard card={{...card, title: 'Te incluye', button: false, old_price: false, new_price: false}} containerClassName={"col checkoutCard"} />
               </div>
             </div>
             <div className="col-lg-6 justify-content-center">

@@ -3,22 +3,32 @@ import 'firebase/firestore';
 import 'firebase/storage';
 import 'firebase/auth';
 
-const environment = 'production'
+//Change this to set env
+const environment = process.env.REACT_APP_ENV || 'production'
+
+console.log(process.env);
 
 
 const firebaseApp = environment === 'test' ?  
 firebase.initializeApp ({
-//Paste here firebase app test config
+  //Paste here firebase app test config
+  apiKey:  process.env.REACT_APP_APIKEY_TEST,
+  authDomain:  process.env.REACT_APP_AUTHDOMAIN_TEST,
+  databaseURL:  process.env.REACT_APP_DATABASEURL_TEST,
+  projectId:  process.env.REACT_APP_PROJECTID_TEST,
+  storageBucket:  process.env.REACT_APP_STORAGEBUCKET_TEST,
+  messagingSenderId:  process.env.REACT_APP_MESSAGINGSENDERID_TEST,
+  appId:  process.env.REACT_APP_APPID_TEST
 })
 :
 firebase.initializeApp ({
-  apiKey:'AIzaSyDakiQSqn1GyJsIuuEu9bN5YqCROtMhwVA',
-  authDomain:'personaltrainer-8747d.firebaseapp.com',
-  databaseUrl:'https://personaltrainer-8747d-default-rtdb.firebaseio.com',
-  projectId:'personaltrainer-8747d',
-  storageBucket:'personaltrainer-8747d.appspot.com',
-  messaginSenderId: '702201037787',
-  appId: '1:702201037787:web:31d032e52b2c71bb541dfe'
+  apiKey:  process.env.REACT_APP_APIKEY,
+  authDomain:  process.env.REACT_APP_AUTHDOMAIN,
+  databaseURL:  process.env.REACT_APP_DATABASEURL,
+  projectId:  process.env.REACT_APP_PROJECTID,
+  storageBucket:  process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId:  process.env.REACT_APP_MESSAGINGSENDERID,
+  appId:  process.env.REACT_APP_APPID
 });
 
 const db = firebase.firestore();

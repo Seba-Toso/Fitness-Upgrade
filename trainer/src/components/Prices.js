@@ -9,7 +9,7 @@ const Prices = () => {
 	const renderPrices = () => {
 		return cardInfo.map(card => {
 			return (
-				<PriceCard card={{ ...card, old_price: false, new_price: false }} />
+				<PriceCard key={card.title} card={{ ...card, old_price: false, new_price: false }} />
 			)
 		})
 	}

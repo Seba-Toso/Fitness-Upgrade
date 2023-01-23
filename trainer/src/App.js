@@ -33,7 +33,7 @@ const UserOnlyRoute = ({ currentUser }) => {
 
 const App = () => {
   const { currentUser } = useContext(AuthContext)
-  const isAdmin = currentUser === null ? false : currentUser.email === 'admin@gmail.com' ? true : false
+  const isAdmin = currentUser === null ? false : (currentUser.email === 'admin@gmail.com' || currentUser.email === 'jsgtoso@gmail.com') ? true : false
 
 
   return (

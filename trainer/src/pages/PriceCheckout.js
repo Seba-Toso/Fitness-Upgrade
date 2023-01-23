@@ -41,34 +41,6 @@ const PriceCheckout = ({alert}) => {
     localStorage.setItem('country', e.target.value)
   }
 
-  const handleAlert = () => {
-    const message = <>
-      Bienvenido!
-      <br/>
-      Recibí tu suscripción de forma correcta   
-      <br/>
-      Una vez que te registres en la página con todos tus datos ya vas a quedar agendando para que empiece a armar tu plan de entrenamiento personalizado   
-      <br/>
-      El mismo te va a estar llegando en los 2-3 días hábiles
-      <br/>
-      Recorda utilizar el código que figura en la suscripción de Mercado Pago
-      <br/>
-      Código: 53200155880
-      <br/>
-      <br/>
-      https://www.nicocandiotifit.com/register
-      <br/>
-      IMPORTANTE: recordá que estás adherido a un débito automático. Esto quiere que los 01 de cada mes se te va a cobrar. En caso de que en algún momento no desees continuar con el asesoramiento, me avisas y efectuamos la baja en el momento, ya que una vez Cobrado te agendo para seguir
-      <br/>
-      Cualquier duda que tengas, estoy a tú disposición  
-      <br/>
-      A partir de ahora vas a empezar a entrenar de forma correcta con el mejor asesoramiento  
-      <br/>
-      Saludos! 
-    </>
-    alert.show(message, {type: 'withClose', timeout: 0, }) 
-  }
-
   return (
     <div className="layoutContainer paymentCheckout">
       <section className="classes-section spad">
@@ -100,7 +72,7 @@ const PriceCheckout = ({alert}) => {
                 }
                 {
                   country &&
-                  <PaymentDetail card={{...card, button: 'Pagar con Mercado Pago'}} country={country} handleAlert={handleAlert}/>
+                  <PaymentDetail card={{...card, button: 'Pagar con Mercado Pago'}} country={country}/>
                 }
               </div>
             </div>

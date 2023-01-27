@@ -73,7 +73,7 @@ const PaymentDetail = ({ card = null, country = '' }) => {
             {
               (card?.new_price || card?.new_price_uss) &&
               <h2 style={{ fontSize: '48px' }}>
-                {country === 'Argentina' ? '$'+card?.new_price : 'US$'+card?.new_price_uss}
+                {country === 'Argentina' ? '$'+card?.new_price : 'USD $'+card?.new_price_uss}
                 <small style={{ fontSize: 16 }}>
                   {card?.price_group && 'c/u'}
                 </small>

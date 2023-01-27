@@ -83,10 +83,16 @@ const PaymentDetail = ({ card = null, country = '' }) => {
         }
 
         <span style={{ color: '#fafafa', fontSize: '16px', fontWeight: 'normal', textTransform: 'initial' }}>mensuales</span>
-        <div style={{ fontSize: '14px', color: '#fafafa', fontWeight: 'normal', textTransform: 'initial', margin: '48px 10px' }}>
+        <div style={{ fontSize: '13px', color: '#fafafa', fontWeight: 'normal', textTransform: 'initial', margin: '48px 10px' }}>
           {
-            (card?.title === 'PLAN VIP' || card?.title === 'PLAN FULL') && country === 'Argentina' ?
-            'El valor figura en dólares. De todas formas, se abona en pesos argentinos vía Mercado Pago. El precio se actualiza mes a mes dependiendo el valor del dólar oficial'
+            (card?.title === 'PLAN VIP' || card?.title === 'PLAN FULL') && country === 'Argentina' ? 
+            <>
+            El valor figura en dólares. De todas formas, se abona en pesos argentinos via Mercado Pago.
+            <br />
+            El precio se actualiza mes a mes dependiendo el valor del dólar oficial.
+            <br />
+            Luego de suscribirte regístrate en la página de inicio así empezamos a trabajar juntos.
+            </>
             :
             'Luego de suscribirte regístrate en la página de inicio así empezamos a trabajar juntos.'
           }

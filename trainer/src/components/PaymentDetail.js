@@ -43,13 +43,13 @@ const PaymentDetail = ({ card = null, country = '' }) => {
               {
                 (card?.old_price || card?.old_price_uss) &&
                 <h2 style={{ textDecoration: 'line-through', transform: 'skewY(0)', color: '#444', fontSize: '28px', marginRight: '20px' }}>
-                  US${card?.old_price_uss}
+                  USD ${card?.old_price_uss}
                 </h2>
               }
               {
                 (card?.new_price || card?.new_price_uss) &&
                 <h2 style={{ fontSize: '48px  ' }}>
-                  US${card?.new_price_uss}
+                  USD ${card?.new_price_uss}
                   <small style={{ fontSize: 16 }}>
                     {card?.price_group && 'c/u'}
                   </small>
@@ -67,7 +67,7 @@ const PaymentDetail = ({ card = null, country = '' }) => {
             {
               country !== 'Argentina' && card?.old_price_uss &&
               <h2 style={{ textDecoration: 'line-through', transform: 'skewY(0)', color: '#444', fontSize: '28px', marginRight: '20px' }}>
-                US${card?.old_price_uss}
+                USD ${card?.old_price_uss}
               </h2>
             }
             {
@@ -86,7 +86,7 @@ const PaymentDetail = ({ card = null, country = '' }) => {
         <div style={{ fontSize: '14px', color: '#fafafa', fontWeight: 'normal', textTransform: 'initial', margin: '48px 10px' }}>
           {
             (card?.title === 'PLAN VIP' || card?.title === 'PLAN FULL') && country === 'Argentina' ?
-            'El valor figura en dólares. De todas formas, se abona en pesos argentinos vía Mercado Pago. El precio se actualiza mes a mes dependiendo el valor del dólar oficial'
+            'El valor figura en dólares. De todas formas, se abona en pesos argentinos vía Mercado Pago. El precio se actualiza mes a mes dependiendo el valor del dólar oficial'
             :
             'Luego de suscribirte regístrate en la página de inicio así empezamos a trabajar juntos.'
           }

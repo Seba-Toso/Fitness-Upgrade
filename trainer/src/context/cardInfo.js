@@ -51,7 +51,7 @@ export const cardInfo = [
     subtitle: '',
     old_price: 4900,
     new_price: 4200,
-    old_price_uss: false,
+    old_price_uss: 60,
     new_price_uss: 45,
     price_group: false,
     items: [

@@ -72,7 +72,7 @@ const PriceCheckout = ({alert}) => {
                 }
                 {
                   country &&
-                  <PaymentDetail card={{...card, button: 'Pagar con Mercado Pago'}} country={country}/>
+                  <PaymentDetail card={{...card, button: 'Empecemos!'}} country={country}/>
                 }
               </div>
             </div>

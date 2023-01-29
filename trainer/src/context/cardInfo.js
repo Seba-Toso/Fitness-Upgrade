@@ -18,7 +18,7 @@ export const cardInfo = [
       '*Suscripción requerida',
     ],
     button: 'ME SUMO!',
-    payment_link: 'https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848243b8d701824573573400db',
+    payment_link: 'https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084745210b20174521aabd40002',
     payment_link_uss: '95E5YH696DKC8',
     button_link: 'priceCheckout?name=vip'
   },
@@ -41,7 +41,7 @@ export const cardInfo = [
       '*Suscripción requerida',
     ],
     button: 'ME SUMO!',
-    payment_link: 'https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084823ab6e701824574a3f803fd',
+    payment_link: 'https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848573564c01857a7a32260576',
     payment_link_uss: 'M6V6YUN27C4PA',
     button_link: 'priceCheckout?name=full'
   },
@@ -51,8 +51,8 @@ export const cardInfo = [
     subtitle: '',
     old_price: 4900,
     new_price: 4200,
-    old_price_uss: false,
-    new_price_uss: false,
+    old_price_uss: 60,
+    new_price_uss: 45,
     price_group: false,
     items: [
       'Plan Personalizado de Entrenamiento',
@@ -65,6 +65,7 @@ export const cardInfo = [
     ],
     button: 'Empecemos!',
     payment_link: 'https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848244949c01824577533b00af',
+    payment_link_uss: 'CKWZCK9HZ6CXW',
     button_link: 'priceCheckout?name=coaching'
   }
 ]

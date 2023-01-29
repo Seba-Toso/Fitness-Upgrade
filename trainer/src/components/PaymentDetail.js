@@ -1,6 +1,7 @@
 import React from 'react'
 
-const PaymentDetail = ({ card = null, country = '', handleAlert }) => {
+const PaymentDetail = ({ card = null, country = '' }) => {
+
   if (country !== 'Argentina' && !card?.payment_link_uss) {
     return (
       <div className={`row non-visible justify-content-center ${!country ? '' : 'fadeIn'}`}>
@@ -36,30 +37,66 @@ const PaymentDetail = ({ card = null, country = '', handleAlert }) => {
     <div className={`row non-visible justify-content-center ${!country ? '' : 'fadeIn'}`}>
       <div className="section-title">
         <span style={{ color: '#fafafa', fontSize: '18px', fontWeight: 'normal', textTransform: 'initial' }}>El valor del mismo es de</span>
-        <div className="pi-price" style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
+        {
+          card?.title === 'PLAN VIP' || card?.title === 'PLAN FULL' ?
+            <div className="pi-price" style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
+              {
+                (card?.old_price || card?.old_price_uss) &&
+                <h2 style={{ textDecoration: 'line-through', transform: 'skewY(0)', color: '#444', fontSize: '28px', marginRight: '20px' }}>
+                  USD ${card?.old_price_uss}
+                </h2>
+              }
+              {
+                (card?.new_price || card?.new_price_uss) &&
+                <h2 style={{ fontSize: '48px  ' }}>
+                  USD ${card?.new_price_uss}
+                  <small style={{ fontSize: 16 }}>
+                    {card?.price_group && 'c/u'}
+                  </small>
+                </h2>
+              }
+            </div>
+          :
+          <div className="pi-price" style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
+            {
+              country === 'Argentina' && card?.old_price && 
+              <h2 style={{ textDecoration: 'line-through', transform: 'skewY(0)', color: '#444', fontSize: '28px', marginRight: '20px' }}>
+                ${card?.old_price}
+              </h2>
+            }
+            {
+              country !== 'Argentina' && card?.old_price_uss &&
+              <h2 style={{ textDecoration: 'line-through', transform: 'skewY(0)', color: '#444', fontSize: '28px', marginRight: '20px' }}>
+                USD ${card?.old_price_uss}
+              </h2>
+            }
+            {
+              (card?.new_price || card?.new_price_uss) &&
+              <h2 style={{ fontSize: '48px' }}>
+                {country === 'Argentina' ? '$'+card?.new_price : 'USD $'+card?.new_price_uss}
+                <small style={{ fontSize: 16 }}>
+                  {card?.price_group && 'c/u'}
+                </small>
+              </h2>
+            }
+          </div>
+        }
+
+        <span style={{ color: '#fafafa', fontSize: '16px', fontWeight: 'normal', textTransform: 'initial' }}>mensuales</span>
+        <div style={{ fontSize: '13px', color: '#fafafa', fontWeight: 'normal', textTransform: 'initial', margin: '48px 10px' }}>
           {
-            (card?.old_price || card?.old_price_uss) &&
-            <h2 style={{ textDecoration: 'line-through', transform: 'skewY(0)', color: '#444', fontSize: '28px', marginRight: '20px' }}>
-              ${country === 'Argentina' ? card?.old_price : card?.old_price_uss}
-            </h2>
-          }
-          {
-            (card?.new_price || card?.new_price_uss) &&
-            <h2 style={{ fontSize: '38px' }}>
-              ${country === 'Argentina' ? card?.new_price : card?.new_price_uss}
-              <small style={{ fontSize: 16 }}>
-                {card?.price_group && 'c/u'}
-              </small>
-            </h2>
-          }
-        </div>
-        <span style={{ color: '#fafafa', fontSize: '16px', fontWeight: 'normal', textTransform: 'initial' }}>menusales</span>
-        <div style={{ fontSize: '14px', color: '#fafafa', fontWeight: 'normal', textTransform: 'initial', margin: '48px 10px' }}>
-          {
-            country === 'Argentina' ? 'Para abonar con Mercado Pago utilizá el botón que se encuentra debajo.' : 'Para abonar con PayPal utilizá el botón que se encuentra debajo.'
+            (card?.title === 'PLAN VIP' || card?.title === 'PLAN FULL') && country === 'Argentina' ? 
+            <>
+            El valor figura en dólares. De todas formas, se abona en pesos argentinos via Mercado Pago.
+            <br />
+            El precio se actualiza mes a mes dependiendo el valor del dólar oficial.
+            <br />
+            Luego de suscribirte regístrate en la página de inicio así empezamos a trabajar juntos.
+            </>
+            :
+            'Luego de suscribirte regístrate en la página de inicio así empezamos a trabajar juntos.'
           }
           <br />
-          En caso de querer utilizar otro medio de pago, te solicito ponerte en contacto conmigo
         </div>
         {
           country === 'Argentina' ?
@@ -68,12 +105,11 @@ const PaymentDetail = ({ card = null, country = '', handleAlert }) => {
               className="payment-checkout-mp"
               target="_blank"
               rel="noreferrer"
-              onClick={handleAlert}
             >
               {card?.button}
             </a>
             :
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" onClick={handleAlert}>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
               <input type="hidden" name="cmd" value="_s-xclick" />
               <input type="hidden" name="hosted_button_id" value={card?.payment_link_uss} />
               <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />

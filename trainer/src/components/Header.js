@@ -179,7 +179,7 @@ const Header = ({ alert }) => {
 								</div>
 							</li>
 							{
-								currentUser && currentUser.email === "admin@gmail.com" &&
+								currentUser && (currentUser.email === 'admin@gmail.com' || currentUser.email === 'jsgtoso@gmail.com') &&
 								<li className="nav-item active mt-2">
 									<Link to="/admin">
 										<img

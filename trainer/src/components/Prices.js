@@ -9,7 +9,7 @@ const Prices = () => {
 	const renderPrices = () => {
 		return cardInfo.map(card => {
 			return (
-				<PriceCard card={{ ...card, old_price: false, new_price: false }} />
+				<PriceCard key={card.title} card={{ ...card, old_price: false, new_price: false }} />
 			)
 		})
 	}
@@ -24,15 +24,19 @@ const Prices = () => {
 							<div className="section-title">
 								<span>Nuestros planes</span><br /><br />
 								<p>
-									Luego de realizar el pago regresa a la página web e ingresa arriba a la derecha al icono de “Usuario” y seleccioná la opción "Registro".<br />
-									De esta forma ya podes completar todos tus datos para que empecemos a trabajar juntos.<br />
-									Cualquier consulta no dudes en mandarme un mail a <a
+									Luego de realizar el pago regresa a la página web e ingresa arriba a la derecha al icono de “Usuario” y seleccioná la opción "Registro".
+									<br />
+									De esta forma ya podes completar todos tus datos para que empecemos a trabajar juntos.
+									<br />
+									Cualquier consulta no dudes en mandarme un mail a 
+									<a
 										href="mailto:nicocandiotifit@gmail.com"
 										style={{ color: '#fafafa' }}
-									>nicocandiotifit@gmail.com</a>
+									>
+										nicocandiotifit@gmail.com
+									</a>
 									<br />
 									<br />
-									Tambien te cuento que estoy dando entrenamientos presenciales y via Zoom. No dudes en hablarme y te paso mas info!
 								</p>
 								<br />
 								<br />

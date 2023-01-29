@@ -10,7 +10,7 @@ const PriceCard = ({card = null, containerClassName = 'col-lg-4 col-md-8'}) => {
     <div className={containerClassName} key={card.title + '-' + card.new_price}>
       <div className="ps-item">
         {
-          <h3>
+          <h3 className='ps-item_h3'>
             {card?.title}
             <p>
               <b>

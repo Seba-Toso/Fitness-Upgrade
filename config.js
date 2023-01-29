@@ -8,7 +8,6 @@ const {NODE_ENV} = process.env
 console.log(`Envirorment set as: ${NODE_ENV}`.black.bgGreen)
 
 const {
-
     PORT_TEST,
     HOST_TEST,
     HOST_URL_TEST,
@@ -19,11 +18,9 @@ const {
     STORAGE_BUCKET_TEST,
     MESSAGING_SENDER_ID_TEST,
     APP_ID_TEST
-
 } = process.env;
 
 const {
-
     PORT,
     HOST,
     HOST_URL,
@@ -34,7 +31,6 @@ const {
     STORAGE_BUCKET,
     MESSAGING_SENDER_ID,
     APP_ID
-
 } = process.env;
 
 assert(PORT, 'PORT is required');

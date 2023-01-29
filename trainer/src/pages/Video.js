@@ -98,7 +98,7 @@ const Video = ({ videos, fetching }) => {
 										{
 											showSuggest &&
 											<ul className='inputSuggest'>
-												{excerciseNames?.map(name => { return <li className='suggest' onClick={() => handleInput(name)}>{name}</li> })}
+												{excerciseNames?.map(name => { return <li key={name} className='suggest' onClick={() => handleInput(name)}>{name}</li> })}
 											</ul>
 										}
 									</div>

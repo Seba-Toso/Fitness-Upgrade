@@ -10,11 +10,10 @@ const ClientMessage = () => {
         setIsfetching(true)
         const clientsMessages = db.collection('Comment').onSnapshot(snap => {
             const data = snap.docs.map(doc => ({...doc.data(), 'id': doc.id}))
-            setData(data)
             setIsfetching(false)
+            setData(data)
         });
         return () => clientsMessages()
-
     }, []);
 
     const handleDelete = ( id ) => {
@@ -30,7 +29,7 @@ const ClientMessage = () => {
 
         return !data.length ? (
             <div className="container mt-5 mb-5 text-center">
-            <h2 style={{color:'White'}}>{!isFetching? 'CARGANDO MENSAJES...' : 'AUN NO HAY MENSAJES'}</h2>
+            <h2 style={{color:'#fafafa'}}>{isFetching? 'CARGANDO MENSAJES...' : 'AUN NO HAY MENSAJES'}</h2>
             </div>
         )
         :

@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     setCurrentUser(true)
     firebaseApp.auth().onAuthStateChanged((user) => {
       setCurrentUser(user)
-      user? console.log('Login Successful',) : console.log("There's no user logged")
+      console.log(user?'Login Successful' : 'There is not user Logged.')
       setUserIsLoading(false)
     });
   }, []);
@@ -28,3 +28,4 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+

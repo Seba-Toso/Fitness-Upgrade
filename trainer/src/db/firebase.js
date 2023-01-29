@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/firestore';
 import 'firebase/storage';
 import 'firebase/auth';
+require("dotenv").config()
 
 //Change this to set env
 const environment = process.env.REACT_APP_ENV || 'production'

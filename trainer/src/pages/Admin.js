@@ -77,11 +77,15 @@ const Admin = () => {
 				</div>
 			</section>
 
-			<div className='filters d-flex'>
+			<div className={`filters d-flex ${open ? 'withBg' : ''}`}>
 				<IoSearchCircle className={open ? 'filter active' : 'filter'} fontSize={40} onClick={() => { handleOpen() }} />
 				<div className={open ? 'fadeIn' : 'fadeOff'}>
-					<IoCalendar className='filter' fontSize={36} onClick={() => { handleFilter('date') }} />
-					<IoText className='filter' fontSize={36} onClick={() => { handleFilter('alphabetical') }} />
+					<div className='filter' onClick={() => { handleFilter('date') }} >
+					<IoCalendar fontSize={24} /> <p>Por Fecha</p>
+					</div>	
+					<div className='filter' onClick={() => { handleFilter('alphabetical') }} >
+					<IoText fontSize={24} /> <p>Alfabético</p>
+					</div>
 					<div className='filter' style={{ paddingBottom: '5px', borderBottom: '1px solid #F36100', margin: '0 auto' }}>
 						<input
 							type="text"

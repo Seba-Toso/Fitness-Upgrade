@@ -87,7 +87,7 @@ const ClientList = ({filter = ''}) => {
             data.map((doc, index) => {
               return (
                 <div className="card" key={doc.id}>
-                  <div className="card-header" id={"heading-" + doc.firstName}>
+                  <div className={`card-header ${cardOpened[index] ? 'show' : ''}`} id={"heading-" + doc.firstName}>
                     <h2 className="mb-0 d-flex">
                       <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target={"#collapse-" + doc.firstName} aria-expanded="false" aria-controls={"collapse-" + doc.firstName} onClick={() => openerHandler(index)}>
                         {doc.firstName + ' ' + doc.lastName}

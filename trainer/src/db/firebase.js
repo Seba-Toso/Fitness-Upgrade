@@ -6,9 +6,6 @@ import 'firebase/auth';
 //Change this to set env
 const environment = process.env.REACT_APP_ENV || 'production'
 
-console.log(process.env);
-
-
 const firebaseApp = environment === 'test' ?  
 firebase.initializeApp ({
   //Paste here firebase app test config

@@ -45,7 +45,7 @@ const ClientList = ({filter = ''}) => {
       })
       setClients(users)
     }else(setClients(data))
-  },[filter])
+  },[filter, data])
 
   const handleDelete = (userIndex, userId) => {
     db.collection('Suscription').doc(userId).delete()

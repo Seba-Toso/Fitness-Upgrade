@@ -77,7 +77,7 @@ const Admin = () => {
 				</div>
 			</section>
 
-			<div className={`filters d-flex ${open ? 'withBg' : ''}`}>
+			<div className={`filters d-flex ${open ? 'withBg' : 'closed'}`}>
 				<IoSearchCircle className={open ? 'filter active' : 'filter'} fontSize={40} onClick={() => { handleOpen() }} />
 				<div className={open ? 'fadeIn' : 'fadeOff'}>
 					<div className='filter' onClick={() => { handleFilter('date') }} >

@@ -131,15 +131,14 @@ const Video = ({ videos, fetching }) => {
 										:
 										!userData[0]?.payment && currentUser.email !== 'admin@gmail.com' ?
 											<div style={{ alignContent: 'center', color: '#fafafa', width: '100%', height: '50vh' }}>
-												<h2 className='text-center' style={{ color: '#fafafa' }}>Su suscripción ha caducado</h2>
+												<h2 className='text-center' style={{ color: '#fafafa' }}>No estás habilitado para ver los videos</h2>
 												<br />
 												<br />
 												<h5 className='text-center' style={{ color: '#fafafa' }}>
-													El abono mensual no se ha realizado o fue hecho fuera de término.
+													Esto puede suceder debido a que todavía no te he habilitado para verlos o que el abono mensual no se fue realizado o fue hecho fuera de término.
 												</h5>
 												<br />
-												<p className='text-center'>Para acceder nuevamente a los videos, realice el pago, guarde el número de comprobante y luego, en registro, active la opción "Update" para completar el formulario de Actualización
-													de pago con el nuevo número de comprobante, esto actualizará el pago y podrá ver los videos.
+												<p className='text-center'>Para acceder nuevamente a los videos, en caso de que hayas abonado ponete en contacto conmigo, de lo contrario te solicito que normalices el pago del servicio.
 												</p>
 											</div>
 											:

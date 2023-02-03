@@ -29,7 +29,7 @@ const ClientMessage = () => {
 
         return !data.length ? (
             <div className="container mt-5 mb-5 text-center">
-            <h2 style={{color:'#fafafa'}}>{isFetching? 'CARGANDO MENSAJES...' : 'AUN NO HAY MENSAJES'}</h2>
+            <h2 className='fallbackMessage'>{isFetching? 'CARGANDO MENSAJES...' : 'AUN NO HAY MENSAJES'}</h2>
             </div>
         )
         :

@@ -21,7 +21,7 @@ const Admin = () => {
 		<div className="back-admin layoutContainer">
 			<section className="classes-section spad">
 				<div className="container d-flex dashboardContainer">
-					<div className="col-lg-2">
+					<div className="col-lg-2 col-md-3">
 						<div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 							<button className="nav-link active d-flex justify-content-between" id="v-pills-clientes-tab" data-toggle="pill" data-target="#v-pills-clientes" type="button" role="tab" aria-controls="v-pills-clientes" aria-selected="true">
 								Clientes <IoPersonCircleOutline fontSize={20} style={{ verticalAlign: 'baseline' }} />

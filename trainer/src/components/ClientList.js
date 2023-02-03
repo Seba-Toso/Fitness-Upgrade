@@ -5,47 +5,47 @@ import { IoCheckbox, IoCloseCircle, IoTrashBin } from 'react-icons/io5';
 
 const ClientList = ({filter = ''}) => {
   const [data, setData] = useState([]);
+  const [clients, setClients] = useState([...data])
   const [isFetching, setIsfetching] = useState(false);
-  const [cardOpened, setCardOpened] = useState([])
-
 
   useEffect(() => {
     setIsfetching(true)
     const clientsMessages = db.collection('Suscription').onSnapshot(snap => {
       let data = snap.docs.map(doc => ({ ...doc.data(), 'id': doc.id }))
-      
-      if(!filter || filter === 'date' || filter === 'alphabetical'){
-        data.sort( (a, b) => {
-          let item
-          if(!filter || filter === 'date'){
-              item = 1
-          }
-          if(filter === 'alphabetical'){
-              if(a.firstName.toUpperCase() < b.firstName.toUpperCase()){item = -1}
-              else if(a.firstName.toUpperCase() > b.firstName.toUpperCase()){item = 1}
-              else{ item = 0}
-          }
-          return item
-        })
-        setData(data)
-      }else if(filter || filter !== 'date' || filter !== 'alphabetical'){
-        let users = data.filter(user =>  user.firstName.toUpperCase().includes(filter.toUpperCase()))
-        setData(users)
-      }else(setData(data))
-      
-
+      setData(data)
+      setClients(data)
       setIsfetching(false)
     });
 
     return () => clientsMessages()
-  }, [filter]);
+  }, []);
 
   useEffect(() => {
-    if (data?.length) {
-      const cardOpenedLength = data.map(data => false)
-      setCardOpened(cardOpenedLength)
-    }
-  }, [data])
+    let usersToUpdate = [...data]
+    if(!filter || filter === 'date' || filter === 'alphabetical'){
+            //Filtro por fecha de ingreso o alfabéticamente
+      let users = usersToUpdate.sort( (a, b) => {
+        let item
+        if(!filter || filter === 'date'){
+            item = 1
+        }
+        if(filter === 'alphabetical'){
+            if(a.firstName.toUpperCase() < b.firstName.toUpperCase()){item = -1}
+            else if(a.firstName.toUpperCase() > b.firstName.toUpperCase()){item = 1}
+            else{ item = 0}
+        }
+        return item
+      })
+      setClients(users)
+    }else if(filter || filter !== 'date' || filter !== 'alphabetical'){
+      //Filtro por nombre o apellido
+      let users = usersToUpdate.filter(user => {
+        let userFullName = `${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`
+        return userFullName.includes(filter.toUpperCase())
+      })
+      setClients(users)
+    }else(setClients(data))
+  },[filter])
 
   const handleDelete = (userIndex, userId) => {
     db.collection('Suscription').doc(userId).delete()
@@ -59,23 +59,12 @@ const ClientList = ({filter = ''}) => {
     db.collection('Suscription').doc(userId).set(updatedUser)
   }, [data])
 
-  const openerHandler = useCallback((indx) => {
-    const updateCardOpened = cardOpened.map((data, index) => {
-      if(index === indx){
-        return !cardOpened[indx]
-      }
-      return false
-    })
-
-    setCardOpened(updateCardOpened)
-  },[cardOpened])
-
   const messageList = useMemo(() => {
     
-    if (!data.length) {
+    if (!clients.length) {
       return (
         <div className="container  mt-5 mb-5 text-center">
-          <h2 style={{ color: 'White' }}>{!isFetching ? 'CARGANDO CLIENTES...' : 'AUN NO HAY CLIENTES'}</h2>
+          <h2 className='fallbackMessage'>{!isFetching ? 'CARGANDO CLIENTES...' : 'AUN NO HAY CLIENTES'}</h2>
         </div>
       )
     }
@@ -84,26 +73,24 @@ const ClientList = ({filter = ''}) => {
       <div className="container">
         <div className="accordion" id="accordionExample"  >
           {
-            data.map((doc, index) => {
+            clients.map((doc, index) => {
               return (
                 <div className="card" key={doc.id}>
-                  <div className={`card-header ${cardOpened[index] ? 'show' : ''}`} id={"heading-" + doc.firstName}>
+                  <div className={`card-header show`} id={"heading-" + doc.firstName}>
                     <h2 className="mb-0 d-flex">
-                      <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target={"#collapse-" + doc.firstName} aria-expanded="false" aria-controls={"collapse-" + doc.firstName} onClick={() => openerHandler(index)}>
+                      <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target={"#collapse-" + doc.firstName} aria-expanded="false" aria-controls={"collapse-" + doc.firstName} >
                         {doc.firstName + ' ' + doc.lastName}
                       </button>
-                      {
-                        cardOpened[index] &&
                         <>
-                          <button className="btn btn-success" type="button" onClick={() => handleCancelSubscription(index, doc.id)} style={{ margin: '0 5px' }}>
+                          <p className='state state-title'>Estado:</p>
+                          {doc.payment ? <p className='state'>Activo</p> : <p className='state'>Inactivo</p>}
+                          <button className={`btn btn-${doc.payment ? 'success' : 'danger'}`} type="button" onClick={() => handleCancelSubscription(index, doc.id)} style={{ margin: '0 5px' }}>
                             {doc.payment ? <IoCheckbox fontSize={16} style={{ verticalAlign: 'baseline' }} /> : <IoCloseCircle fontSize={16} style={{ verticalAlign: 'baseline' }} />}
                           </button>
                           <button className="btn btn-danger" type="button" onClick={() => handleDelete(index, doc.id)}>
                             <IoTrashBin fontSize={16} style={{ verticalAlign: 'baseline' }} />
                           </button>
                         </>
-                      }
-
                     </h2>
                   </div>
 
@@ -217,7 +204,7 @@ const ClientList = ({filter = ''}) => {
         </div>
       </div>
     )
-  }, [data, isFetching, handleCancelSubscription, cardOpened, openerHandler])
+  }, [clients, isFetching, handleCancelSubscription])
 
   return (
     <div>

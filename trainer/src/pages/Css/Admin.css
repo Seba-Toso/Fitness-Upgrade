@@ -164,6 +164,12 @@
 	.state-title{
 		display: none;
 	}
+	.card-header .btn-link{
+		max-width: 135px;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
 	.card-header .btn-success, .card-header .btn-danger{
 		padding: 4px 8px;
 	}

@@ -1,19 +1,49 @@
 .videoList {
-    background-color: #222;
+	background-color: #222;
 }
 
 .videoSearchInput:focus,
 .videoSearchInput:active,
 .videoSearchInput:hover {
-    box-shadow: none !important;
-    outline: none;
+	box-shadow: none !important;
+	outline: none;
 }
 
 .videoItem {
-    background-color: #222;
-    color: #fafafa;
-    border-bottom: 1px solid #f36100;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 14px;
+	background-color: #222;
+	color: #fafafa;
+	border-bottom: 1px solid #f36100;
+	cursor: pointer;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.videoFilterContainer {
+	position: relative;
+	width: fit-content;
+	margin: 0 auto;
+}
+
+.inputSuggest {
+	position: absolute;
+	margin-top: 5px;
+	background-color: #222;
+	color: #fafafa;
+	list-style: none;
+	z-index: 99;
+	width: 100%;
+	max-height: 50vh;
+	overflow-y: scroll;
+}
+
+.suggest {
+	transition: 200ms ease-in-out;
+	background-color: #222;
+	padding: 20px 10px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.suggest:hover {
+	background-color: #333;
 }

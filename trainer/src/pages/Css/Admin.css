@@ -1,36 +1,34 @@
-.back-admin{
-    margin: 0;
-    background-image: url('https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-black-textured-background-digital-headset-banner-poster-image_189314.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 40vh;
-  
-  }
-  
-  .back-admin:after {
-    content:"";
-    width: 100%;
-    min-height: 100vh;
-    position: absolute;
-    top:0;
-    left:0;
-  
-    opacity:0.2;
-    z-index:-1;
-  }
+.fallbackMessage{
+	color: #fafafa;
+	font-size: 30px;
+}
+
+.back-admin {
+	margin: 0;
+}
+
+.back-admin:after {
+	content: "";
+	width: 100%;
+	min-height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	opacity: 0.2;
+	z-index: -1;
+}
 
 
-  .btn-flotante {
-	font-size: 12px; 
-	text-transform: uppercase; 
-	font-weight: bold; 
-	color:orangered; 
-	border-radius: 180px; 
-	letter-spacing: 2px; 
-	background-color:black; 
-	padding: 10px; 
+.btn-flotante {
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #f36100;
+	border-radius: 180px;
+	letter-spacing: 2px;
+	background-color: black;
+	padding: 10px;
 	width: 80px;
 	position: fixed;
 	bottom: 40px;
@@ -39,24 +37,183 @@
 	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 	z-index: 99;
 }
+
 .btn-flotante:hover {
-	background-color:black; 
+	background-color: black;
 	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
 	transform: translateY(-7px);
 }
+
+.card{
+	background: #222;
+	transition: ease-in-out 200ms;
+}
+.card .btn-link{
+	color: #fafafa;
+	transition: ease-in-out 200ms;
+}
+.card .btn-link:hover{
+	color: #f36100;
+}
+.card .card-header:hover, .card .show, .card .card-body{
+	background-color: #333;
+}
+.card .show h2{
+	align-items: baseline;
+}
+.card .show .state{
+	margin: 0 2px;
+}
+.back-admin .dashboardContainer .nav{
+	position: fixed;
+}
+.back-admin .dashboardContainer .nav .nav-link{
+	padding: 10px 25px; 
+	font: 14px Arial, Helvetica, sans-serif; 
+	font-weight: bold;
+	border: none;
+	background: #f36100;
+	border: 1px solid #333;
+	border-radius: 0;
+	box-shadow: none;
+	transition: ease-in-out 200ms;
+}
+.back-admin .dashboardContainer .nav .nav-link:hover{
+	border: 1px solid #f36100;
+	background: #333;
+	color: #fafafa;
+}
+.back-admin .dashboardContainer .nav .active{
+	border: 1px solid #333;
+	background: #fafafa;
+	color: #333;
+}
+
+.back-admin .filters{
+	position: fixed;
+	top: 0;
+	right: 10px;
+	margin-top: 100px;
+	color: #f36100;
+	flex-direction: row-reverse;
+	transition: 400ms ease-in-out;
+}
+.back-admin .filters .filter{
+	display: flex;
+	vertical-align: baseline; 
+	margin: 5px; 
+	cursor: pointer;
+	transition: ease-in-out 200ms;
+}
+.back-admin .filters .filter p{
+	margin-left: 5px;
+}
+.back-admin .filters .active{
+	color: #fafafa;
+	fill: #fafafa;
+}
+.back-admin .filters .filter:hover{
+	color: #fafafa;
+	fill: #fafafa;
+}
+.withBg{
+	background: #333;
+	padding: 10px;
+}
+
 @media only screen and (max-width: 600px) {
- 	.btn-flotante {
+	.section-title h2{
+		font-size: 28px;
+	}
+	.fallbackMessage{
+		font-size: 24px;
+	}
+	
+	.btn-flotante {
 		font-size: 14px;
 		padding: 12px 20px;
 		bottom: 20px;
 		right: 20px;
 	}
+	.back-admin .dashboardContainer{
+		flex-direction: column;
+	}
+	.back-admin .dashboardContainer .projectSlider>div{
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.back-admin .dashboardContainer .col-lg-2{
+		margin-bottom: 20px;
+		width: 80%;
+	}
+	.back-admin .dashboardContainer .nav{
+		position: initial;
+	}
+	.back-admin .filters{
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 100%;
+    padding: 10px;
+		margin-top: 80px;
+	}
+	.withBg{
+		background: #222;
+		padding: initial;
+	}
+	.closed{
+		width: fit-content !important;
+	}
+
+	.state-title{
+		display: none;
+	}
+	.card-header .btn-link{
+		max-width: 135px;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.card-header .btn-success, .card-header .btn-danger{
+		padding: 4px 8px;
+	}
 }
 
 .distanceOne {
-  margin-bottom: 100px;
+	margin-bottom: 100px;
 }
 
 .distanceTwo {
-  margin-bottom: 50px;
+	margin-bottom: 50px;
+}
+
+
+
+.non-visible{
+  opacity: 0;
+}
+.fadeOff{
+  animation: fadeOff 200ms ease-in-out forwards;
+  cursor: none;
+  pointer-events: none;
+	margin-right: initial;
+	opacity: 1;
+}
+@keyframes fadeOff {
+	100% {
+    opacity: 0;
+		margin-right: -40px;
+		width: 30px;
+  }
+}
+.fadeIn{
+	margin-right: -40px;
+	opacity: 0;
+  animation: fadeIn 200ms ease-in-out 200ms forwards;
+}
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+		margin-right: initial;
+  }
 }

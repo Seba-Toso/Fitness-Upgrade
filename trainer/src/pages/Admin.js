@@ -16,7 +16,7 @@ const Admin = () => {
 		setFilterBy(filter)
 		handleOpen()
 	}
-
+	console.log('admin render');
 	return (
 		<div className="back-admin layoutContainer">
 			<section className="classes-section spad">

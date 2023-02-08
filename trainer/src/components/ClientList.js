@@ -3,163 +3,168 @@ import { db } from '../db/firebase';
 import { IoCheckbox, IoCloseCircle, IoTrashBin } from 'react-icons/io5';
 
 
-const ClientList = ({filter = ''}) => {
+const ClientList = ({ filter = '' }) => {
+  useEffect(() => {
+    console.log('list render');
+  })
+
   const [data, setData] = useState([]);
   const [clients, setClients] = useState([...data])
   const [isFetching, setIsfetching] = useState(false);
 
-  useEffect(() => {
-    setIsfetching(true)
-    const clientsMessages = db.collection('Suscription').onSnapshot(snap => {
-      let data = snap.docs.map(doc => ({ ...doc.data(), 'id': doc.id }))
+  const fetchData = useCallback(() => {
+    console.log('fetch data');
+    db.collection('Suscription').onSnapshot(snap => {
+      let data = snap.docs.map(doc => ({ ...doc?.data(), 'id': doc?.id }))
+      console.log({data});
       setData(data)
       setClients(data)
       setIsfetching(false)
     });
-
-    return () => clientsMessages()
-  }, []);
+  }, [])
 
   useEffect(() => {
+    setIsfetching(true)
+    fetchData()
+    console.log('fetch');
+    //return () => clientsMessages()
+  }, [fetchData]);
+
+  useEffect(() => {
+    console.log('filter useEffect');
     let usersToUpdate = [...data]
-    if(!filter || filter === 'date' || filter === 'alphabetical'){
-            //Filtro por fecha de ingreso o alfabéticamente
-      let users = usersToUpdate.sort( (a, b) => {
+    if (!filter || filter === 'date' || filter === 'alphabetical') {
+      //Filtro por fecha de ingreso o alfabéticamente
+      let users = usersToUpdate.sort((a, b) => {
         let item
-        if(!filter || filter === 'date'){
-            item = 1
+        if (!filter || filter === 'date') {
+          item = 1
         }
-        if(filter === 'alphabetical'){
-            if(a.firstName.toUpperCase() < b.firstName.toUpperCase()){item = -1}
-            else if(a.firstName.toUpperCase() > b.firstName.toUpperCase()){item = 1}
-            else{ item = 0}
+        if (filter === 'alphabetical') {
+          if (a.firstName.toUpperCase() < b.firstName.toUpperCase()) { item = -1 }
+          else if (a.firstName.toUpperCase() > b.firstName.toUpperCase()) { item = 1 }
+          else { item = 0 }
         }
         return item
       })
       setClients(users)
-    }else if(filter || filter !== 'date' || filter !== 'alphabetical'){
+    } else if (filter || filter !== 'date' || filter !== 'alphabetical') {
       //Filtro por nombre o apellido
       let users = usersToUpdate.filter(user => {
         let userFullName = `${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`
         return userFullName.includes(filter.toUpperCase())
       })
       setClients(users)
-    }else(setClients(data))
-  },[filter, data])
+    } else (setClients(data))
+  }, [filter,data])
 
   const handleDelete = (userIndex, userId) => {
+    console.log(`eliminando user ${clients[userIndex]}`);
     db.collection('Suscription').doc(userId).delete()
     //.then(() => window.location.reload())
   }
 
-  const handleCancelSubscription = useCallback((userIndex, userId) => {
-    const user = data[userIndex]
-    const updatedUser = { ...user, payment: !user.payment }
+  const handleCancelSubscription = (userId, doc) => {
+    console.log(`modificando suscripcion user ${doc.firstName} ${doc.lastName} ${doc.id} `);
+    const updatedUser = { ...doc, payment: !doc?.payment }
 
-    db.collection('Suscription').doc(userId).set(updatedUser)
-  }, [data])
+    db.collection('Suscription').doc(userId).update(updatedUser)
+  }
+
 
   const messageList = useMemo(() => {
-    
-    if (!clients.length) {
-      return (
-        <div className="container  mt-5 mb-5 text-center">
-          <h2 className='fallbackMessage'>{!isFetching ? 'CARGANDO CLIENTES...' : 'AUN NO HAY CLIENTES'}</h2>
-        </div>
-      )
-    }
-
+    console.log('messageList memo');
     return (
       <div className="container">
         <div className="accordion" id="accordionExample"  >
           {
             clients.map((doc, index) => {
               return (
-                <div className="card" key={doc.id}>
-                  <div className={`card-header show`} id={"heading-" + doc.firstName}>
+                <div className="card" key={doc?.id}>
+                  <div className={`card-header show`} id={"heading-" + doc?.id}>
                     <h2 className="mb-0 d-flex">
-                      <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target={"#collapse-" + doc.firstName} aria-expanded="false" aria-controls={"collapse-" + doc.firstName} >
-                        {doc.firstName + ' ' + doc.lastName}
+                      <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target={"#collapse-" + doc?.id} aria-expanded="false" aria-controls={"collapse-" + doc?.id} >
+                        {doc?.firstName + ' ' + doc?.lastName}
                       </button>
-                        <>
-                          <p className='state state-title'>Estado:</p>
-                          {doc.payment ? <p className='state'>Activo</p> : <p className='state'>Inactivo</p>}
-                          <button className={`btn btn-${doc.payment ? 'success' : 'danger'}`} type="button" onClick={() => handleCancelSubscription(index, doc.id)} style={{ margin: '0 5px' }}>
-                            {doc.payment ? <IoCheckbox fontSize={16} style={{ verticalAlign: 'baseline' }} /> : <IoCloseCircle fontSize={16} style={{ verticalAlign: 'baseline' }} />}
-                          </button>
-                          <button className="btn btn-danger" type="button" onClick={() => handleDelete(index, doc.id)}>
-                            <IoTrashBin fontSize={16} style={{ verticalAlign: 'baseline' }} />
-                          </button>
-                        </>
+                      <>
+                        <p className='state state-title'>Estado:</p>
+                        {doc?.payment ? <p className='state'>Activo</p> : <p className='state'>Inactivo</p>}
+                        <button className={`btn btn-${doc?.payment ? 'success' : 'danger'}`} type="button" onClick={() => handleCancelSubscription(doc?.id, doc)} style={{ margin: '0 5px' }}>
+                          {doc?.payment ? <IoCheckbox fontSize={16} style={{ verticalAlign: 'baseline' }} /> : <IoCloseCircle fontSize={16} style={{ verticalAlign: 'baseline' }} />}
+                        </button>
+                        <button className="btn btn-danger" type="button" onClick={() => handleDelete(index, doc?.id)}>
+                          <IoTrashBin fontSize={16} style={{ verticalAlign: 'baseline' }} />
+                        </button>
+                      </>
                     </h2>
                   </div>
 
-                  <div id={"collapse-" + doc.firstName} className="collapse" aria-labelledby={"heading-" + doc.firstName} data-parent="#accordionExample">
+                  <div id={"collapse-" + doc?.id} className="collapse" aria-labelledby={"heading-" + doc?.id} data-parent="#accordionExample">
                     <div className="card-body">
                       <div className="table" >
                         {/* <span className='tableItem'>
                             <div className='tableTitle'>HABILITAR </div>
-                            <div className='tableDescription tableAction' onClick={() => handleCancelSubscription(index, doc.id)}>
-                              {doc.payment ? <IoCheckbox color='#48ad5f' fontSize={18} /> : <IoCloseCircle color='#a03549' fontSize={18} />}
+                            <div className='tableDescription tableAction' onClick={() => handleCancelSubscription(index, doc?.id)}>
+                              {doc?.payment ? <IoCheckbox color='#48ad5f' fontSize={18} /> : <IoCloseCircle color='#a03549' fontSize={18} />}
                             </div>
                           </span> */}
                         <span className='tableItem'>
                           <div className='tableTitle'>ID: </div>
-                          <div className='tableDescription'>{doc.id}</div>
+                          <div className='tableDescription'>{doc?.id}</div>
                         </span>
                         <span className='tableItem'>
                           <div className='tableTitle'>NOMBRE: </div>
-                          <div className='tableDescription'>{doc.firstName}</div>
+                          <div className='tableDescription'>{doc?.firstName}</div>
                         </span>
                         <span className='tableItem'>
                           <div className='tableTitle'>APELLIDO: </div>
-                          <div className='tableDescription'>{doc.lastName}</div>
+                          <div className='tableDescription'>{doc?.lastName}</div>
                         </span>
                         <span className='tableItem'>
                           <div className='tableTitle'>E-MAIL: </div>
-                          <div className='tableDescription'>{doc.email}</div>
+                          <div className='tableDescription'>{doc?.email}</div>
                         </span>
                         <span className='tableItem'>
                           <div className='tableTitle'>ANTECEDENTES MEDICOS: </div>
-                          <div className='tableDescription'>{doc.medicalHistory}</div>
+                          <div className='tableDescription'>{doc?.medicalHistory}</div>
                         </span>
                         <span className='tableItem'>
                           <div className='tableTitle'>PESO: </div>
-                          <div className='tableDescription'>{doc.weight}</div>
+                          <div className='tableDescription'>{doc?.weight}</div>
                         </span>
                         <span className='tableItem'>
                           <div className='tableTitle'>ALTURA: </div>
-                          <div className='tableDescription'>{doc.height}</div>
+                          <div className='tableDescription'>{doc?.height}</div>
                         </span>
                         <span className='tableItem'>
                           <div className='tableTitle'>EDAD: </div>
-                          <div className='tableDescription'>{doc.age}</div>
+                          <div className='tableDescription'>{doc?.age}</div>
                         </span>
                         <span className='tableItem'>
                           <div className='tableTitle'>DÍAS DE ENTRENAMIENTO: </div>
-                          <div className='tableDescription'>{doc.availableDays}</div>
+                          <div className='tableDescription'>{doc?.availableDays}</div>
                         </span>
                         <span className='tableItem'>
                           <div className='tableTitle'>LUGAR DE ENTRENAMIENTO: </div>
-                          <div className='tableDescription'>{doc.trainingPlace}</div>
+                          <div className='tableDescription'>{doc?.trainingPlace}</div>
                         </span>
                         <span className='tableItem'>
                           <div className='tableTitle'>DETALLE DE ELEMENTOS </div>
-                          <div className='tableDescription'>{doc.tools}</div>
+                          <div className='tableDescription'>{doc?.tools}</div>
                         </span>
                         <span className='tableItem'>
                           <div className='tableTitle'>OBJETIVO: </div>
-                          <div className='tableDescription'>{doc.target}</div>
+                          <div className='tableDescription'>{doc?.target}</div>
                         </span>
                         {/* <span className='tableItem'>
                             <div className='tableTitle'>NUMERO DE CUPON DE OPERACION: </div>
-                            <div className='tableDescription'>{doc.cuponNumber}</div>
+                            <div className='tableDescription'>{doc?.cuponNumber}</div>
                           </span> */}
                         <span className='tableItem'>
                           <div className='tableTitle'>FOTO DE FRENTE: </div>
                           <div className='tableDescription'>
                             <img
-                              src={doc.imageFront}
+                              src={doc?.imageFront}
                               alt="front"
                               width="100px"
                             />
@@ -169,7 +174,7 @@ const ClientList = ({filter = ''}) => {
                           <div className='tableTitle'>FOTO DE ESPALDA: </div>
                           <div className='tableDescription'>
                             <img
-                              src={doc.imageBack}
+                              src={doc?.imageBack}
                               alt="front"
                               width="100px"
                             />
@@ -177,7 +182,7 @@ const ClientList = ({filter = ''}) => {
                         </span>
                         {/* <span className='tableItem'>
                             <div className='tableTitle'>BORRAR USUARIO</div>
-                            <div className='tableDescription tableAction' onClick={() => handleDelete(index, doc.id)}>
+                            <div className='tableDescription tableAction' onClick={() => handleDelete(index, doc?.id)}>
                               <svg
                                 type="button"
                                 className=" bi bi-trash"
@@ -204,7 +209,15 @@ const ClientList = ({filter = ''}) => {
         </div>
       </div>
     )
-  }, [clients, isFetching, handleCancelSubscription])
+  }, [clients])
+
+  if (!clients.length) {
+    return (
+      <div className="container  mt-5 mb-5 text-center">
+        <h2 className='fallbackMessage'>{!isFetching ? 'CARGANDO CLIENTES...' : 'AUN NO HAY CLIENTES'}</h2>
+      </div>
+    )
+  }
 
   return (
     <div>

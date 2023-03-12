@@ -35,7 +35,7 @@ const PaymentDetail = ({ card = null, country = '' }) => {
 
   return (
     <div className={`row non-visible justify-content-center ${!country ? '' : 'fadeIn'}`}>
-      <div className="section-title">
+      <div className="section-title" style={{marginBottom: '80px'}}>
         <span style={{ color: '#fafafa', fontSize: '18px', fontWeight: 'normal', textTransform: 'initial' }}>El valor del mismo es de</span>
         {
           card?.title === 'PLAN VIP' || card?.title === 'PLAN FULL' ?
@@ -83,7 +83,11 @@ const PaymentDetail = ({ card = null, country = '' }) => {
         }
 
         <span style={{ color: '#fafafa', fontSize: '16px', fontWeight: 'normal', textTransform: 'initial' }}>mensuales</span>
-        <div style={{ fontSize: '13px', color: '#fafafa', fontWeight: 'normal', textTransform: 'initial', margin: '48px 10px' }}>
+
+        {
+          card?.subtitle_help && <div style={{ fontSize: '13px', color: '#fafafa', fontWeight: 'bold', textTransform: 'initial', margin: '30px 10px 10px' }}>{card.subtitle_help}</div>
+        }
+        <div style={{ fontSize: '13px', color: '#fafafa', fontWeight: 'normal', textTransform: 'initial', margin: '10px 10px 30px' }}>
           {
             (card?.title === 'PLAN VIP' || card?.title === 'PLAN FULL') && country === 'Argentina' ? 
             <>
@@ -109,12 +113,14 @@ const PaymentDetail = ({ card = null, country = '' }) => {
               {card?.button}
             </a>
             :
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-              <input type="hidden" name="cmd" value="_s-xclick" />
-              <input type="hidden" name="hosted_button_id" value={card?.payment_link_uss} />
-              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
-              <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1" />
-            </form>
+            <a
+              href={card?.payment_link_uss}
+              className="payment-checkout-mp"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {card?.button}
+            </a>
         }
       </div>
     </div>

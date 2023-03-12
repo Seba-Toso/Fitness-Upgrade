@@ -23,8 +23,8 @@ const Services = () => {
             image: service1
         },
         {
-            title: 'Tips nutricionales',
-            subtitle: 'Te aconsejo como dividir tus comidas para poder acompañar tu plan personalizado',
+            title: 'Plan de comidas',
+            subtitle: 'Armamos tu plan personalizado de comidas, ya sea que comas vegetariano, vegano, sin tacc, entre otros',
             pd: '(Atencion: no son planes nutricionales)',
             image: service3
         },

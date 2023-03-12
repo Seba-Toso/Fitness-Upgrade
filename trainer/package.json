@@ -1,5 +1,6 @@
 {
-  "name": "trainer",
+  "name": "nicocandiotifit-front",
+  "homepage": "https://nicocandiotifit.com",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {

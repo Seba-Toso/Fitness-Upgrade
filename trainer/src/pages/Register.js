@@ -19,9 +19,11 @@ const Register = ({ alert }) => {
 	const [trainingPlace, setTrainingPlace] = useState('');
 	const [availableDays, setAvailableDays] = useState('');
 	const [tools, setTools] = useState('');
+	const [foodType, setFoodType] = useState('')
 	const [target, setTarget] = useState('');
 	const [medicalHistory, setMedicalHistory] = useState('');
 	const [password, setPassword] = useState('');
+	const [acceptTerms, setAcceptTerms] = useState(false)
 	const [imageFront, setImageFront] = useState('');
 	const [imageBack, setImageBack] = useState('');
 	const payment = false
@@ -49,6 +51,7 @@ const Register = ({ alert }) => {
 	}
 
 	const createUserInDB = (user) => {
+		const localStorageCountry = localStorage.getItem('country') ?? ''
 		db.collection('Suscription').add({
 			uid: user.uid,
 			firstName,
@@ -60,12 +63,15 @@ const Register = ({ alert }) => {
 			trainingPlace,
 			availableDays,
 			tools,
+			foodType,
 			target,
 			medicalHistory,
 			//cuponNumber,
 			imageFront,
 			imageBack,
-			payment
+			payment,
+			acceptTerms,
+			county: localStorageCountry ?? ''
 		}).then(() => {
 			firebase.auth().signInWithEmailAndPassword(email, password)
 		}).catch((err) => {
@@ -117,6 +123,7 @@ const Register = ({ alert }) => {
 			})
 			.catch(err => console.log(err))
 	}
+
 
 	return (
 		<div className="layoutContainer">
@@ -218,14 +225,21 @@ const Register = ({ alert }) => {
 										</div>
 									</div>
 									<div className="form-row">
-										<div className="form-group col-md-6">
+										<div className="form-group col-md-4">
 											<textarea type="text" className="form-control"
 												placeholder="Si es en casa, disponés de elementos? Detallarlos:"
 												value={tools}
 												onChange={(e) => setTools(e.target.value)}
 											/>
 										</div>
-										<div className="form-group col-md-6">
+										<div className="form-group col-md-4">
+											<textarea type="text" className="form-control"
+												placeholder="Tipo de alimentación (vegana, vegetariana, sin gluten, otros.)"
+												value={foodType}
+												onChange={(e) => setFoodType(e.target.value)}
+											/>
+										</div>
+										<div className="form-group col-md-4">
 											<textarea type="text" className="form-control"
 												placeholder="Objetivo"
 												value={target}
@@ -267,6 +281,23 @@ const Register = ({ alert }) => {
 											/>
 										</div>
 									</div>
+									<div className="form-row">
+										<div className="form-group col d-flex align-items-center">
+											<label className='mr-3 mb-0' >He leído, entendido y aceptado la 
+												<a className='terms&conditions' href='/politics-and-legal#privacidad'> Política de Privacidad </a>
+												y el 
+												<a className='terms&conditions' href='/politics-and-legal#legal'> Aviso legal</a>
+											</label>
+											<input 
+												className='m-0 '
+												type="checkbox"
+												checked={acceptTerms}
+												onChange={(e) => setAcceptTerms(e.target.checked)}
+												required
+											/>
+										</div>
+									</div>
+
 									<button
 										className="mt-5 createAccount"
 										type="submit"

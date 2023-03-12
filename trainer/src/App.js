@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import About from './pages/About';
+import Legal from './pages/Legal'
 import PriceCheckout from './pages/PriceCheckout';
 import Video from './pages/Video'
 import NotFound from './pages/NotFound';
@@ -47,6 +48,7 @@ const App = () => {
             <Route exact path="/login" component={Login} />
             <Route exact path="/us" component={About} />
             <Route exact path="/pricecheckout" component={PriceCheckout} />
+            <Route path="/politics-and-legal" component={Legal} />
             <UserOnlyRoute path="/video" currentUser={currentUser} />
             <PrivateRoute path='/admin' isAdmin={isAdmin} />
             <Route path="*" component={NotFound} />

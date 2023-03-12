@@ -720,6 +720,7 @@ ol {
 	position: relative;
 	padding: 10px 30px 26px 30px;
 	z-index: 1;
+	min-height: 330px;
 }
 
 .class-item .ci-text:after {
@@ -2632,6 +2633,20 @@ ol {
 	border: none;
 	padding: 14px 0 12px;
 	background: #f36100;
+}
+
+.leave-comment form input[type=checkbox]   {
+	width: initial;
+	position: relative;
+	height: initial;
+}
+
+form label{
+	color: #fff;
+}
+form label a{
+	cursor: pointer;
+	color: #007bff !important;
 }
 
 /*---------------------

@@ -15,7 +15,6 @@ const Header = ({ alert }) => {
 	const firebase = useFirebaseApp();
 	const history = useHistory();
 	const { currentUser } = useContext(AuthContext);
-	//console.log(currentUser)
 
 	const logout = () => {
 		firebase.auth().signOut()

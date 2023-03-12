@@ -57,7 +57,7 @@ const Video = ({ videos, fetching }) => {
 
 	return (
 		<div className="layoutContainer">
-			<section className="classes-section spad">
+			<section className="classes-section spad videos-container">
 				<div className="container">
 					<div className="row mb-5">
 						<div className="col-lg-12">
@@ -156,7 +156,7 @@ const Video = ({ videos, fetching }) => {
 
 const mapStateToProps = (state) => {
 	const { excercises, isFetching } = state.trainerState
-	//console.log(excercises)
+	
 	return {
 		isFetching,
 		videos: excercises.sort((a, b) => {

@@ -32,7 +32,7 @@ const PriceCheckout = ({alert}) => {
         return 'NO SE HA SELECCIONADO UN PLAN'
     }
   }
-  const card = cardInfo.filter(plan => plan.title === selectedPlan())[0]
+  const card = cardInfo.filter(plan => plan.title === selectedPlan())
 
   const countryReturn = countries.map((country) => <option key={country} value={country}>{country}</option>)
 
@@ -54,9 +54,14 @@ const PriceCheckout = ({alert}) => {
             </div>
           </div>
           <div className="row justify-content-around mobile-col-invert m-2">
-            <div className="col-lg-4">
-              <div className="section-title">
-                <PriceCard card={{...card, title: 'Te incluye', button: false, old_price: false, new_price: false}} containerClassName={"col checkoutCard"} />
+            <div className="col-lg-4 d-flex align-items-center">
+              <div className="section-title w-100">
+                {
+                  card?.map(
+                    cardPrice => cardPrice.showInHome && 
+                    <PriceCard key={cardPrice.title+'-'+cardPrice.new_price} card={{...cardPrice, title: 'Te incluye', button: false, old_price: false, new_price: false}} containerClassName={"col checkoutCard"} />
+                    )
+                }
               </div>
             </div>
             <div className="col-lg-6 justify-content-center">
@@ -72,7 +77,7 @@ const PriceCheckout = ({alert}) => {
                 }
                 {
                   country &&
-                  <PaymentDetail card={{...card, button: 'Empecemos!'}} country={country}/>
+                  card?.map(cardPrice => <PaymentDetail key={cardPrice.title+'-'+cardPrice.new_price} card={{...cardPrice, button: 'Empecemos!'}} country={country}/>)
                 }
               </div>
             </div>

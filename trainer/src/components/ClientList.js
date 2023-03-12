@@ -4,19 +4,14 @@ import { IoCheckbox, IoCloseCircle, IoTrashBin } from 'react-icons/io5';
 
 
 const ClientList = ({ filter = '' }) => {
-  useEffect(() => {
-    console.log('list render');
-  })
 
   const [data, setData] = useState([]);
   const [clients, setClients] = useState([...data])
   const [isFetching, setIsfetching] = useState(false);
 
   const fetchData = useCallback(() => {
-    console.log('fetch data');
     db.collection('Suscription').onSnapshot(snap => {
       let data = snap.docs.map(doc => ({ ...doc?.data(), 'id': doc?.id }))
-      console.log({data});
       setData(data)
       setClients(data)
       setIsfetching(false)
@@ -26,12 +21,10 @@ const ClientList = ({ filter = '' }) => {
   useEffect(() => {
     setIsfetching(true)
     fetchData()
-    console.log('fetch');
     //return () => clientsMessages()
   }, [fetchData]);
 
   useEffect(() => {
-    console.log('filter useEffect');
     let usersToUpdate = [...data]
     if (!filter || filter === 'date' || filter === 'alphabetical') {
       //Filtro por fecha de ingreso o alfabéticamente
@@ -59,21 +52,17 @@ const ClientList = ({ filter = '' }) => {
   }, [filter,data])
 
   const handleDelete = (userIndex, userId) => {
-    console.log(`eliminando user ${clients[userIndex]}`);
     db.collection('Suscription').doc(userId).delete()
     //.then(() => window.location.reload())
   }
 
   const handleCancelSubscription = (userId, doc) => {
-    console.log(`modificando suscripcion user ${doc.firstName} ${doc.lastName} ${doc.id} `);
     const updatedUser = { ...doc, payment: !doc?.payment }
 
     db.collection('Suscription').doc(userId).update(updatedUser)
   }
 
-
   const messageList = useMemo(() => {
-    console.log('messageList memo');
     return (
       <div className="container">
         <div className="accordion" id="accordionExample"  >
@@ -125,6 +114,14 @@ const ClientList = ({ filter = '' }) => {
                           <div className='tableDescription'>{doc?.email}</div>
                         </span>
                         <span className='tableItem'>
+                          <div className='tableTitle'>ACEPTA LEGALES: </div>
+                          <div className='tableDescription'>{doc?.acceptTerms ? 'SI' : 'NO'}</div>
+                        </span>
+                        <span className='tableItem'>
+                          <div className='tableTitle'>PAÍS: </div>
+                          <div className='tableDescription'>{doc?.country}</div>
+                        </span>
+                        <span className='tableItem'>
                           <div className='tableTitle'>ANTECEDENTES MEDICOS: </div>
                           <div className='tableDescription'>{doc?.medicalHistory}</div>
                         </span>
@@ -149,8 +146,12 @@ const ClientList = ({ filter = '' }) => {
                           <div className='tableDescription'>{doc?.trainingPlace}</div>
                         </span>
                         <span className='tableItem'>
-                          <div className='tableTitle'>DETALLE DE ELEMENTOS </div>
+                          <div className='tableTitle'>DETALLE DE ELEMENTOS: </div>
                           <div className='tableDescription'>{doc?.tools}</div>
+                        </span>
+                        <span className='tableItem'>
+                          <div className='tableTitle'>TIPO DE ALIMENTACIÓN: </div>
+                          <div className='tableDescription'>{doc?.foodType}</div>
                         </span>
                         <span className='tableItem'>
                           <div className='tableTitle'>OBJETIVO: </div>

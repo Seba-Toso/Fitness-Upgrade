@@ -47,3 +47,7 @@
 .suggest:hover {
 	background-color: #333;
 }
+
+.videos-container .ci-text{
+	min-height: initial !important;
+}

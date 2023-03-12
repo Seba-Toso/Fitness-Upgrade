@@ -11,12 +11,14 @@ class Register {
         trainingDays,
         trainingPlace,
         tools,
+        foodType,
         target,
         activity,
         medicalHistory,
         frontPicture,
         backPicture,
-        payment
+        payment,
+        acceptTerms
         ) {
         this.id = id,
         this.firstName = firstName,
@@ -28,12 +30,14 @@ class Register {
         this.trainingDays = trainingDays,
         this.trainingPlace = trainingPlace,
         this.tools = tools,
+        this.foodType = foodType,
         this.target = target, 
         this.activity = activity,
         this.medicalHistory = medicalHistory,
         this.frontPicture = frontPicture,
         this.backPicture = backPicture
-        this.payment = payment
+        this.payment = payment,
+        this.acceptTerms = acceptTerms
     }
 }
 

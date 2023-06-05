@@ -29,7 +29,7 @@ const Cards = () => {
             <hr />
             <div className="container">
                 <div className="row align-items-start mt-3 ">
-                    <div className="col-sm">
+                    <div className="col-sm mb-2">
                         <img
                             className="imgChanges"
                             src={Card1}
@@ -37,7 +37,7 @@ const Cards = () => {
                             loading='lazy'
                         />
                     </div>
-                    <div className="col-sm">
+                    <div className="col-sm mb-2">
                         <img
                             className="imgChanges"
                             src={Card2}
@@ -45,7 +45,7 @@ const Cards = () => {
                             loading='lazy'
                         />
                     </div>
-                    <div className="col-sm">
+                    <div className="col-sm mb-2">
                         <img
                             className="imgChanges"
                             src={Card3}
@@ -53,7 +53,7 @@ const Cards = () => {
                             loading='lazy'
                         />
                     </div>
-                    <div className="col-sm">
+                    <div className="col-sm mb-2">
                         <img
                             className="imgChanges"
                             src={Card4}
@@ -63,7 +63,7 @@ const Cards = () => {
                     </div>
                 </div>
                 <div className="row align-items-center">
-                    <div className="col-sm">
+                    <div className="col-sm mb-2">
                         <img
                             className="imgChanges"
                             src={Card5}
@@ -71,7 +71,7 @@ const Cards = () => {
                             loading='lazy'
                         />
                     </div>
-                    <div className="col-sm">
+                    <div className="col-sm mb-2">
                         <img
                             className="imgChanges"
                             src={Card6}
@@ -79,7 +79,7 @@ const Cards = () => {
                             loading='lazy'
                         />
                     </div>
-                    <div className="col-sm">
+                    <div className="col-sm mb-2">
                         <img
                             className="imgChanges"
                             src={Card7}
@@ -87,7 +87,7 @@ const Cards = () => {
                             loading='lazy'
                         />
                     </div>
-                    <div className="col-sm">
+                    <div className="col-sm mb-2">
                         <img
                             className="imgChanges"
                             src={Card8}

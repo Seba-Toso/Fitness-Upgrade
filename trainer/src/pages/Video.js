@@ -55,6 +55,8 @@ const Video = ({ videos, fetching }) => {
 
 	const handleReset = () => { setinputFilter('') }
 
+	console.log(videos);
+
 	return (
 		<div className="layoutContainer">
 			<section className="classes-section spad videos-container">

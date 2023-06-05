@@ -10,6 +10,12 @@ const ClientList = ({ filter = '' }) => {
   const [isFetching, setIsfetching] = useState(false);
 
   const fetchData = useCallback(() => {
+    //evaluar mejoras en esto
+    //metodo .limit establece la cantidad que devuelve
+    //metodo .startAt establece el indiece desde que empieza a devolver
+    //metodo .endAt establece el indiece en el que termina de devolver
+    //metodo .orderBy establece un orden
+    //metodo .where( fieldPath: 'firstName' ,opStr : '==' ,  value :  'filter.name' ) devuelve los datos que se condicen con la comparación
     db.collection('Suscription').onSnapshot(snap => {
       let data = snap.docs.map(doc => ({ ...doc?.data(), 'id': doc?.id }))
       setData(data)
@@ -61,7 +67,7 @@ const ClientList = ({ filter = '' }) => {
 
     db.collection('Suscription').doc(userId).update(updatedUser)
   }
-
+  console.log(clients);
   const messageList = useMemo(() => {
     return (
       <div className="container">
